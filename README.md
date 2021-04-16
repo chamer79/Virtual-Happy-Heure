@@ -10,11 +10,13 @@ Use this section to describe your final project and perhaps any links to relevan
 
 ## API and Data Sample
 
-Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+```json
+
+```
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+[Wireframe]{https://yourwireframe}
 
 ### MVP/PostMVP
 
@@ -23,8 +25,8 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 #### MVP 
 *These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
+- Allows user to pull up a random  ::subject here:: 
+- Render item img, description, and recipe/location/ additonal data
 - Allow user to choose favorites 
 
 #### PostMVP  
@@ -63,11 +65,19 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
 | Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
 | Total | H | 6hrs| 5hrs | 5hrs |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+Describe code snippet proud of & why
 
 ```
 function reverse(string) {
