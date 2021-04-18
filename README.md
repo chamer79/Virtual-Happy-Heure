@@ -100,31 +100,32 @@ API data sample for requesting a random cocktain recipe
 
 ## Wireframes
 
-[Wireframe]{https://yourwireframe}
+[Wireframe]{https://www.figma.com/file/4t0l59CGg28AkRKUjPtDjV/Virtual-Happy-Heure-Desktop?node-id=3%3A2}
 
 ### MVP/PostMVP
 
 #### MVP 
 
--Add HTML & connect all files
--Create dynamic dropdown menu
--Create form option tags
--Get option value tag
--Event handler for form 
--API request for ingredients data
--API request for random cocktail data
--Connecting both APIs together
--Create dynamic tags & append to the DOM: imageb & article
--Remove previous results 
--Style with CSS
--CSS responsive design
+-Add HTML & connect all files.
+-Create dynamic dropdown menu.
+-Create form option tags.
+-Get option value tag.
+-Event handler for form. 
+-API request for ingredients data.
+-API request for random cocktail data.
+-Connecting both APIs together.
+-Create dynamic tags & append to the DOM: imageb & article.
+-Remove previous results.
+-Style with CSS.
+-CSS responsive design.
 -Ding! Done!!
 
 #### PostMVP  
 
--Add a cocktail shaker animation
--Add a " Feeling Lucky" button that produce a randomly generated cocktail option
--Adding images to each option on teh dropdown menu
+-Add a cocktail shaker animation.
+-Add a " Feeling Lucky" button that produce a randomly generated cocktail option.
+-Adding images to each option on the dropdown menu.
+-Add a gradient effect to the header's background image.
 -Ask a UX student for input.
 
 ## Project Schedule
@@ -133,7 +134,7 @@ API data sample for requesting a random cocktain recipe
 |---|---| ---|
 |April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
 |April 19| Project Approval | Incomplete
-|April 20| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|April 20| Core application structure (HTML, CSS, etc.) | Incomplete
 |April 20| Pseudocode / Dropdown menu code | Incomplete
 |April 20| Requesting APIs: ingredients & random cocktail | Incomplete
 |April 20| Connecting both APIs | Incomplete
@@ -144,20 +145,20 @@ API data sample for requesting a random cocktain recipe
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+[Priorty Matrix] {https://www.figma.com/file/UzrCJwd54pW3og75mxgyht/Virtual-Happy-Heure-Priority-Matrix?node-id=0%3A1}
 
 ## Timeframes
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 0hrs | 0hrs |
+| Adding Form | M | 3hrs| 0hrs | 0hrs |
 | Dropdown Menu | H | 4hrs| 0hrs | 0hrs |
 | Requesting Ingredient API | H | 5hrs| 0hrs | 0hrs |
 | RequestRandom Cocktail API | H | 5hrs| 0hrs | 0hrs |
 | Connecting both APIs together | H | 5hrs| 0hrs | 0hrs |
-| Dynamic tags & append to DOM: image & article | H | 4hrs| 0hrs | 0hrs |
+| Dynamic tags & append to DOM: image & article | M-H | 4hrs| 0hrs | 0hrs |
 | Remove previous results | H | 4hrs| 0hrs | 0hrs |
-| CSS | H | 8hrs| 0hrs | 0hrs |
+| CSS | M | 8hrs| 0hrs | 0hrs |
 | Total | H | 38hrs| 0hrs | 0hrs |
 
 ## Code Snippet
