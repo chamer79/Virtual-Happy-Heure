@@ -6,7 +6,7 @@ Virtual Happy Heure
 
 ## Project Description
 
-A website that will randomly generate a cocktail recipe, and image, based on the based spirit choosen.
+A website that will randomly generate a cocktail recipe, with image, based on the based spirit choosen.
 
 ## API and Data Sample
 API data sample for requesting ingredients
