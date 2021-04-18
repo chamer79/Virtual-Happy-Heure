@@ -6,7 +6,7 @@ Virtual Happy Heure
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+A website that will randomly generate a cocktail recipe, and image, based on the based spirit choosen.
 
 ## API and Data Sample
 API data sample for requesting ingredients
