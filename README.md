@@ -2,16 +2,99 @@
 
 ## Project Name
 
-The name of your project with deployed URL.
+Virtual Happy Heure
 
 ## Project Description
 
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
 ## API and Data Sample
-
+API data sample for requesting ingredients
 ```json
+{
+    "drinks": [
+        {
+            "strDrink": "3-Mile Long Island Iced Tea",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg",
+            "idDrink": "15300"
+        },
+        {
+            "strDrink": "69 Special",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/vqyxqx1472669095.jpg",
+            "idDrink": "13940"
+        },
+        {
+            "strDrink": "A1",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg",
+            "idDrink": "17222"
+        },
+        {
+            "strDrink": "Abbey Cocktail",
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/mr30ob1582479875.jpg",
+            "idDrink": "17834"
+        }
+}	
+```
 
+API data sample for requesting a random cocktain recipe
+```json
+{
+    "drinks": [
+        {
+            "idDrink": "11007",
+            "strDrink": "Margarita",
+            "strDrinkAlternate": null,
+            "strTags": "IBA,ContemporaryClassic",
+            "strVideo": null,
+            "strCategory": "Ordinary Drink",
+            "strIBA": "Contemporary Classics",
+            "strAlcoholic": "Alcoholic",
+            "strGlass": "Cocktail glass",
+            "strInstructions": "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.",
+            "strInstructionsES": null,
+            "strInstructionsDE": "Reiben Sie den Rand des Glases mit der Limettenscheibe, damit das Salz daran haftet. Achten Sie darauf, dass nur der äußere Rand angefeuchtet wird und streuen Sie das Salz darauf. Das Salz sollte sich auf den Lippen des Genießers befinden und niemals in den Cocktail einmischen. Die anderen Zutaten mit Eis schütteln und vorsichtig in das Glas geben.",
+            "strInstructionsFR": null,
+            "strInstructionsIT": "Strofina il bordo del bicchiere con la fetta di lime per far aderire il sale.\r\nAvere cura di inumidire solo il bordo esterno e cospargere di sale.\r\nIl sale dovrebbe presentarsi alle labbra del bevitore e non mescolarsi mai al cocktail.\r\nShakerare gli altri ingredienti con ghiaccio, quindi versarli delicatamente nel bicchiere.",
+            "strInstructionsZH-HANS": null,
+            "strInstructionsZH-HANT": null,
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
+            "strIngredient1": "Tequila",
+            "strIngredient2": "Triple sec",
+            "strIngredient3": "Lime juice",
+            "strIngredient4": "Salt",
+            "strIngredient5": null,
+            "strIngredient6": null,
+            "strIngredient7": null,
+            "strIngredient8": null,
+            "strIngredient9": null,
+            "strIngredient10": null,
+            "strIngredient11": null,
+            "strIngredient12": null,
+            "strIngredient13": null,
+            "strIngredient14": null,
+            "strIngredient15": null,
+            "strMeasure1": "1 1/2 oz ",
+            "strMeasure2": "1/2 oz ",
+            "strMeasure3": "1 oz ",
+            "strMeasure4": null,
+            "strMeasure5": null,
+            "strMeasure6": null,
+            "strMeasure7": null,
+            "strMeasure8": null,
+            "strMeasure9": null,
+            "strMeasure10": null,
+            "strMeasure11": null,
+            "strMeasure12": null,
+            "strMeasure13": null,
+            "strMeasure14": null,
+            "strMeasure15": null,
+            "strImageSource": "https://commons.wikimedia.org/wiki/File:Klassiche_Margarita.jpg",
+            "strImageAttribution": "Cocktailmarler",
+            "strCreativeCommonsConfirmed": "Yes",
+            "dateModified": "2015-08-18 14:42:59"
+        }
+    ]
+}
 ```
 
 ## Wireframes
@@ -20,35 +103,42 @@ Use this section to describe your final project and perhaps any links to relevan
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Allows user to pull up a random  ::subject here:: 
-- Render item img, description, and recipe/location/ additonal data
-- Allow user to choose favorites 
+-Add HTML & connect all files
+-Create dynamic dropdown menu
+-Create form option tags
+-Get option value tag
+-Event handler for form 
+-API request for ingredients data
+-API request for random cocktail data
+-Connecting both APIs together
+-Create dynamic tags & append to the DOM: imageb & article
+-Remove previous results 
+-Style with CSS
+-CSS responsive design
+-Ding! Done!!
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+-Add a cocktail shaker animation
+-Add a " Feeling Lucky" button that produce a randomly generated cocktail option
+-Adding images to each option on teh dropdown menu
+-Ask a UX student for input.
 
 ## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
 |April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
 |April 19| Project Approval | Incomplete
 |April 20| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|April 20| Pseudocode / actual code | Incomplete
-|April 21| Initial Clickable Model  | Incomplete
-|April 22| MVP | Incomplete
+|April 20| Pseudocode / Dropdown menu code | Incomplete
+|April 20| Requesting APIs: ingredients & random cocktail | Incomplete
+|April 20| Connecting both APIs | Incomplete
+|April 21| Dynamic tags & append to DOM  | Incomplete
+|April 21| Remove previous results  | Incomplete
+|April 22| CSS | Incomplete
 |April 23| Presentations | Incomplete
 
 ## Priority Matrix
@@ -57,23 +147,17 @@ Include a full list of features that have been prioritized based on the `Time an
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Adding Form | H | 3hrs| 0hrs | 0hrs |
+| Dropdown Menu | H | 4hrs| 0hrs | 0hrs |
+| Requesting Ingredient API | H | 5hrs| 0hrs | 0hrs |
+| RequestRandom Cocktail API | H | 5hrs| 0hrs | 0hrs |
+| Connecting both APIs together | H | 5hrs| 0hrs | 0hrs |
+| Dynamic tags & append to DOM: image & article | H | 4hrs| 0hrs | 0hrs |
+| Remove previous results | H | 4hrs| 0hrs | 0hrs |
+| CSS | H | 8hrs| 0hrs | 0hrs |
+| Total | H | 38hrs| 0hrs | 0hrs |
 
 ## Code Snippet
 
