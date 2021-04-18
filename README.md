@@ -33,6 +33,7 @@ API data sample for requesting ingredients
             "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/mr30ob1582479875.jpg",
             "idDrink": "17834"
         }
+   ]
 }	
 ```
 
