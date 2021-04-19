@@ -26,7 +26,7 @@ function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirits")
   console.log(optionValue)  // <--sanity check  coming up as null at line 44
-  // getDrinkImage(optionValue)
+  
   return optionValue
 }
     
@@ -41,7 +41,7 @@ form.addEventListener("submit", getValue)
     // -- API Request for Ingredients Data --
 async function baseSpirit(spirit) {
   menuOptions = spirit
-  const url = `www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spirit}`
+  const url = (`www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin`)
 
   try {
     const response = await axios.get(url)
