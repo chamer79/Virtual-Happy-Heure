@@ -9,7 +9,7 @@ Virtual Happy Heure  (Virtual Happy Hour)
 A website that will randomly generate a cocktail recipe, with image, based on the based spirit chosen.
 
 ## API and Data Sample
-[The CocktailDB.com] {https://www.thecocktaildb.com/api.php}
+[The CocktailDB.com] {https://www.thecocktaildb.com}  Will need to click 'API' option on nav bar.
 
 ```json
 {
