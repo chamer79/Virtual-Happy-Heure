@@ -2,7 +2,7 @@
 
 ## Project Name
 
-Virtual Happy Heure
+Virtual Happy Heure  (Virtual Happy Hour)
 
 ## Project Description
 
