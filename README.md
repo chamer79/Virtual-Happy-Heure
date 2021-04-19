@@ -104,7 +104,7 @@ API data sample for requesting a random cocktain recipe
 ### MVP/PostMVP
 
 #### MVP 
-
+```
 -Add HTML & connect all files.
 -Create dynamic dropdown menu.
 -Create form option tags.
@@ -118,14 +118,17 @@ API data sample for requesting a random cocktain recipe
 -Style with CSS.
 -CSS responsive design.
 -Ding! Done!!
+```
 
 #### PostMVP  
 
+```
 -Add a cocktail shaker animation.
 -Add a " Feeling Lucky" button that produce a randomly generated cocktail option.
 -Adding images to each option on the dropdown menu.
 -Add a gradient effect to the header's background image.
 -Ask a UX student for input.
+```
 
 ## Project Schedule
 
