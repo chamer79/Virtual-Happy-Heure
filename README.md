@@ -6,7 +6,7 @@ Virtual Happy Heure  (Virtual Happy Hour)
 
 ## Project Description
 
-A website that will randomly generate a cocktail recipe, with image, based on the based spirit choosen.
+A website that will randomly generate a cocktail recipe, with image, based on the based spirit chosen.
 
 ## API and Data Sample
 [The CocktailDB.com] {https://www.thecocktaildb.com/api.php}
