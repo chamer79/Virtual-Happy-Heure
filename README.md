@@ -155,7 +155,7 @@ API data sample for requesting a random cocktain recipe
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | M | 3hrs| 0hrs | 0hrs |
+| Adding Form | M | 3hrs| 1hrs | 1hrs |
 | Dropdown Menu | H | 4hrs| 0hrs | 0hrs |
 | Requesting Ingredient API | H | 5hrs| 0hrs | 0hrs |
 | RequestRandom Cocktail API | H | 5hrs| 0hrs | 0hrs |
