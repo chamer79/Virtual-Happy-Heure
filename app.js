@@ -1,16 +1,16 @@
     // -- Create Dynamic Dropdown Menu --
-function baseSpirit(list) {
+function baseSpirit() {
   const selectTag = document.querySelector("#select-spirit")
   const spirit = ["Bourbon", "Gin", "Tequila", "Vodka", "Rum"]
   
   for (let i = 0; i < spirit.length; i++) {
+    // console.log(spirit[i])   // <-- sanity check
     let spiritList = spirit[i]
     let optionTag = document.createElement("option")
 
-    if ()
-    optionTag.textContent = spirit[0]
-    optionTag.value = spirit[0]
-    selectTag.append(optionTag)
+    optionTag.textContent = spirit[i]
+    optionTag.value = spirit
+    selectTag.appendChild(optionTag)
   }
 }
 baseSpirit()
