@@ -135,11 +135,13 @@ API data sample for requesting a random cocktain recipe
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|April 19| Project Approval | Incomplete
-|April 20| Core application structure (HTML, CSS, etc.) | Incomplete
-|April 20| Pseudocode / Dropdown menu code | Incomplete
-|April 20| Requesting APIs: ingredients & random cocktail | Incomplete
+|April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|April 19| Project Approval | Complete
+|April 20| Core application structure (HTML, CSS, etc.) | Complete
+|April 20| Pseudocode | Complete
+|April 20| Dropdown menu code | Complete
+|April 20| Requesting APIs: ingredients | Complete
+|April 20| Requesting APIs: random cocktail | Incomplete
 |April 21| Connecting both APIs | Incomplete
 |April 21| Dynamic tags & append to DOM  | Incomplete
 |April 21| Remove previous results  | Incomplete
@@ -156,9 +158,9 @@ API data sample for requesting a random cocktain recipe
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Form | M | 3hrs| 1hrs | 1hrs |
-| Dropdown Menu | H | 4hrs| 0hrs | 0hrs |
-| Requesting Ingredient API | H | 5hrs| 0hrs | 0hrs |
-| RequestRandom Cocktail API | H | 5hrs| 0hrs | 0hrs |
+| Dropdown Menu | H | 4hrs| 6hrs | 6hrs |
+| Requesting Ingredient API | H | 5hrs| 3hrs | 3hrs |
+| RequestRandom Cocktail API | H | 5hrs| 0.5hrs | 0hrs |
 | Connecting both APIs together | H | 5hrs| 0hrs | 0hrs |
 | Dynamic tags & append to DOM: image & article | M-H | 4hrs| 0hrs | 0hrs |
 | Remove previous results | H | 4hrs| 0hrs | 0hrs |
