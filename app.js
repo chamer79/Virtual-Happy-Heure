@@ -11,7 +11,7 @@ function menuOptions() {
     optionTag.textContent = spirit[i]   
     optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
-    console.log(optionTag.value)
+    // console.log(optionTag.value)   // <--sanity check
   }
 }
 menuOptions()
@@ -27,7 +27,7 @@ function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirit").value
     console.log(optionValue)  // <--sanity check  **Logging Null HERE
-    // getDrinkId(optionValue)
+    getDrinkId(optionValue)
 
  
   // ***CALL RX VALUE HERE
@@ -53,7 +53,6 @@ async function getDrinkId(spiritValue) {
       console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging 'undefinded'
       const spiritDrinkId = spiritResponse.data.drinks[0].idDrink
     }
-    // menuOptions(spiritList)  // <--RefenceError: spiritList is not defined @ getDrinkId
   }
   catch (error) {
     console.error (error)
@@ -64,7 +63,6 @@ getDrinkId()
 
     
     // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED
-// async function 
 async function getCocktail(cocktailValue) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
   try {
@@ -74,6 +72,7 @@ async function getCocktail(cocktailValue) {
   catch (error) {
     console.error(error)
   }
+  return cocktailValue
 }
 getCocktail()
 
@@ -84,7 +83,7 @@ getCocktail()
 
     
     // --Create Dynamic Tags & Append to the DOM: Image & Article
-
+          // *** REFER TO COUNTRY LAB LINES 47-65
 
 
 
