@@ -1,18 +1,18 @@
     // -- Create Dynamic Dropdown Menu --  <-- VERY HAPPY Possible Code Snippet
-function menuOptions(list) {
+function menuOptions() {
   const selectTag = document.querySelector("#select-spirit")
   const spirit = ["Bourbon", "Gin", "Tequila", "Vodka", "Rum"]
   
   for (let i = 0; i < spirit.length; i++) {
-    // console.log(spirit[i])   // <-- sanity check
+    // console.log(spirit[i])   // <-- sanity check WORKS
     let spiritList = spirit[i]
     let optionTag = document.createElement("option")  // <-- Create For Option Tags
 
     optionTag.textContent = spirit[i]   
-    optionTag.value = spirit
+    optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
+    console.log(optionTag.value)
   }
-  return list
 }
 menuOptions()
     
@@ -22,13 +22,17 @@ menuOptions()
 
     
     
-    // -- Get Option Value Tag --
+    // -- Get Option Value Tag --  ****ADDD CONDITIONAL
 function getValue(e) {
   e.preventDefault()
-  const optionValue = document.querySelector("#select-spirits")
-  console.log(optionValue)  // <--sanity check  
-  // getDrinkId(optionValue)
-  return optionValue
+  const optionValue = document.querySelector("#select-spirit").value
+  
+
+    console.log(optionValue)  // <--sanity check  **Logging Null HERE
+    getDrinkId(optionValue)
+
+ 
+  // ***CALL RX VALUE HERE
 }
     
     
@@ -41,14 +45,16 @@ form.addEventListener("submit", getValue)
     
     // -- API Request for Ingredients Data --
 async function getDrinkId(spiritValue) {
-  // menuOptions = spiritValue
+  // console.log("HERE HERE:", spiritValue)
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
 
   try {
-    const spiritResponse = await axios.get(url)
-    console.log(spiritResponse.data.idDrink) //<--sanity check  logging 'undefinded'
-    const spiritDrinkId = spiritResponse.data.idDrink
- 
+    if (spiritValue === undefined) {    // <--URL ENDED w/ undefined. 
+      return null
+    } else {
+      const spiritResponse = await axios.get(url)
+      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check 
+    }
     // menuOptions(spiritList)  // <--RefenceError: spiritList is not defined @ getDrinkId
   }
   catch (error) {
@@ -59,7 +65,7 @@ async function getDrinkId(spiritValue) {
 getDrinkId()
 
     
-    // -- API Request for Random Coctail Recipe Data --
+    // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED
 // async function 
 
 
