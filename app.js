@@ -62,12 +62,13 @@ async function getDrinkId(spiritValue) {
 getDrinkId()
 
     
-    // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED
+    // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED....Would need to go to getDrinkId??? :/
 async function getCocktail(cocktailValue) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
   try {
     const cocktailResponse = await axios.get(url)
-    console.log(cocktailResponse.data.drinks)
+    console.log(cocktailResponse.data.drinks[0])
+    // showCocktailData(cocktailResponse.data.drinks[0])    // <--TYPEERROR: CAN'T READ PROPERTY '0' OF UNDEFINED @ showCocktailData #87 & getCocktail #71
   }
   catch (error) {
     console.error(error)
@@ -77,16 +78,36 @@ async function getCocktail(cocktailValue) {
 getCocktail()
 
     
+  //  --Create Dynamic HTML & Append to the DOM: 
+  //    ->image, h2, h3, ul / li, & p
+function showCocktailData(data) {
+  console.log("Inside showCocktailData:", data)   // <--sanity check *Doesn't appear to be logging in console. WHY?? :/
+  
+   let cocktailData = `
+  <img id="cocktail-image"  src="${data.drinks[0].strDrinkThumb}" alt="cocktail image" style="width: 250px; height: auto;">
+  <h2>Cocktail: ${data.drinks[0].strDrink}</h2>
+  <h3>Glass: ${data.drinks[0].strGlass}</h3>
+  <p>Instrictions:  ${data.drinks[0].strIntructions}</p>
+  
+  `
+  console.log("Data Requesting Here:", cocktailData)    // <-- sanity check *Doesn't appear to be logging in console.  WHY??  :/
+
+  document.querySelector("#cocktail-image").insertAdjacentHTML("beforeend", cocktailImage)
+  // return cocktailData
+}
+showCocktailData()
+
+
+
+
+
+
     // --Connecting both APIs together --
 
 
 
     
-    // --Create Dynamic Tags & Append to the DOM: Image & Article
-          // *** REFER TO COUNTRY LAB LINES 47-65
-
-
-
+ 
     // -- Remove Previous Results
 
 
