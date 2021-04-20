@@ -70,6 +70,24 @@ async function getCocktail(cocktailValue) {
       console.log(cocktailResponse.data.drinks[0])    // <-- sanity check logging all info
       const cocktailData = cocktailResponse.data.drinks[0]
       // showCocktailData(cocktailResponse.data.drinks[0])    // <--TYPEERROR: CAN'T READ PROPERTY '0' OF UNDEFINED @ showCocktailData #87 & getCocktail #71
+        // Image
+    document.querySelector("#cocktail-image").src = cocktailResponse.data.drinks[0].strDrinkThumb
+    
+    let cocktailRecipe = document.querySelector("#cocktail-recipe")    
+
+        //Drink Recipe
+    let drinkName = document.createElement("h2") 
+    drinkName.textContent = cocktailResponse.data.drinks[0].strDrink
+    cocktailRecipe.append(drinkName)
+    
+    let drinkGlass = document.createElement("h3")
+    drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
+    cocktailRecipe.append(drinkGlass)
+
+    let drinkInstructions = document.createElement("p")
+    drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
+    cocktailRecipe.append(drinkInstructions)
+
   }
   catch (error) {
     console.error(error)
@@ -81,11 +99,16 @@ getCocktail()
     
   //  --Create Dynamic HTML & Append to the DOM: 
   //    ->image, h2, h3, ul / li, & p
-// function showCocktailData(data) {
+
+
+
+
+
+
+      // ***FIRST ATTEMPT****
+  // function showCocktailData(data) {
 //   console.log("Inside showCocktailData:", data)   // <--sanity check *Coming up as undefinded. WHY?? :/
-  
-  
-  
+    
   //  let cocktailData = `
   // <img id="cocktail-image"  src="${data.drinks[0].strDrinkThumb}" alt="cocktail image" style="width: 250px; height: auto;">
   // <h2>Cocktail: ${data.drinks[0].strDrink}</h2>
