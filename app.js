@@ -26,7 +26,7 @@ menuOptions()
 function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirit").value
-    console.log(optionValue)  // <--sanity check  **Logging Null HERE
+    console.log(optionValue)  // <--sanity check  
     getDrinkId(optionValue)
 
  
@@ -42,7 +42,7 @@ form.addEventListener("submit", getValue)
     
     // -- API Request for Ingredients Data --
 async function getDrinkId(spiritValue) {
-  // console.log("HERE HERE:", spiritValue)
+  // console.log("HERE HERE:", spiritValue)    // <-sanity check *shows up as 'undefined' until base spirit is selected
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
 
   try {
@@ -50,7 +50,7 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging 'undefinded'
+      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging idDrink
       const spiritDrinkId = spiritResponse.data.drinks[0].idDrink
     }
   }
@@ -66,9 +66,10 @@ getDrinkId()
 async function getCocktail(cocktailValue) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
   try {
-    const cocktailResponse = await axios.get(url)
-    console.log(cocktailResponse.data.drinks[0])
-    // showCocktailData(cocktailResponse.data.drinks[0])    // <--TYPEERROR: CAN'T READ PROPERTY '0' OF UNDEFINED @ showCocktailData #87 & getCocktail #71
+      const cocktailResponse = await axios.get(url)
+      console.log(cocktailResponse.data.drinks[0])    // <-- sanity check logging all info
+      const cocktailData = cocktailResponse.data.drinks[0]
+      // showCocktailData(cocktailResponse.data.drinks[0])    // <--TYPEERROR: CAN'T READ PROPERTY '0' OF UNDEFINED @ showCocktailData #87 & getCocktail #71
   }
   catch (error) {
     console.error(error)
@@ -80,22 +81,24 @@ getCocktail()
     
   //  --Create Dynamic HTML & Append to the DOM: 
   //    ->image, h2, h3, ul / li, & p
-function showCocktailData(data) {
-  console.log("Inside showCocktailData:", data)   // <--sanity check *Doesn't appear to be logging in console. WHY?? :/
+// function showCocktailData(data) {
+//   console.log("Inside showCocktailData:", data)   // <--sanity check *Coming up as undefinded. WHY?? :/
   
-   let cocktailData = `
-  <img id="cocktail-image"  src="${data.drinks[0].strDrinkThumb}" alt="cocktail image" style="width: 250px; height: auto;">
-  <h2>Cocktail: ${data.drinks[0].strDrink}</h2>
-  <h3>Glass: ${data.drinks[0].strGlass}</h3>
-  <p>Instrictions:  ${data.drinks[0].strIntructions}</p>
   
-  `
-  console.log("Data Requesting Here:", cocktailData)    // <-- sanity check *Doesn't appear to be logging in console.  WHY??  :/
+  
+  //  let cocktailData = `
+  // <img id="cocktail-image"  src="${data.drinks[0].strDrinkThumb}" alt="cocktail image" style="width: 250px; height: auto;">
+  // <h2>Cocktail: ${data.drinks[0].strDrink}</h2>
+  // <h3>Glass: ${data.drinks[0].strGlass}</h3>
+  // <p>Instrictions:  ${data.drinks[0].strIntructions}</p>
+  // `
+  // console.log("Data Requesting Here:", cocktailData)    // <-- sanity check *Doesn't appear to be logging in console.  WHY??  :/
 
-  document.querySelector("#cocktail-image").insertAdjacentHTML("beforeend", cocktailImage)
-  // return cocktailData
-}
-showCocktailData()
+  // document.querySelector("#cocktail-image").insertAdjacentHTML("beforeend", cocktailData) 
+      //^^Above goes w/ code on lines 86-91
+  // return cocktailData   
+// }
+// showCocktailData()
 
 
 
