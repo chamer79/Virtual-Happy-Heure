@@ -92,15 +92,17 @@ async function getCocktail(cocktailValue) {
     // console.log("Ingredient div here:", listDiv)    // <-- sanity check
     cocktailRecipe.append(listDiv)
     
-    let drinkMeasure = document.createElement("li")
-    drinkMeasure.textContent = cocktailResponse.data.drinks[0].strMeasure1
-    listDiv.append(drinkMeasure)
+    let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1
+    // drinkMeasure.textContent = cocktailResponse.data.drinks[0].strMeasure1
+    // listDiv.append(drinkMeasure)
 
-    let drinkIngredient = document.createElement("li")
-    drinkIngredient.textContent = cocktailResponse.data.drinks[0].strIngredient1
-    drinkMeasure.append(drinkIngredient)
+    let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1
+    // drinkIngredient.textContent = cocktailResponse.data.drinks[0].strIngredient1
+    // drinkMeasure.append(drinkIngredient)
 
-    
+    let drinkSpecs = document.createElement("li")
+    drinkSpecs.textContent = `${drinkMeasure}  ${drinkIngredient}`
+    listDiv.append(drinkSpecs)
   
     
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
@@ -119,12 +121,7 @@ getCocktail()
   //  --Create Dynamic HTML & Append to the DOM: 
   //    ->image, h2, h3, ul / li, & p
 
-
-
-
-
-
-      // ***FIRST ATTEMPT****
+              // ***FIRST ATTEMPT****   <---nothing popped up....realized forgot .textContent.  doah!
   // function showCocktailData(data) {
 //   console.log("Inside showCocktailData:", data)   // <--sanity check *Coming up as undefinded. WHY?? :/
     
