@@ -92,54 +92,34 @@ async function getCocktail(cocktailValue) {
     // console.log("Ingredient div here:", listDiv)    // <-- sanity check
     cocktailRecipe.append(listDiv)
     
-    let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1    // <-- '1' is for sanity check
+    // let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1    // <-- '1' is for sanity check
     
-    function myMeasure(measurements) {
-      for (const [key, value] of Object.entries(measurements)) {
-        
-      }
-
+    function myMeasure(drink) {
+      // for (const [key, value] of Object.entries(measurements)) {
+      // console.log(drink)
+      // }
+      Object.entries(drink).forEach(([key, value]) => {
+        if (key.includes('strIngredient')) {
+          if (value !== null) {
+            let keyNum = key.split('strIngredient')
+            // console.log(keyNum)
+            // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
+            let myDrinkSpecs = document.createElement("li")
+            myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
+            listDiv.append(myDrinkSpecs)
+          }
+        }
+      })
     }
-
-    // let drinkMeasure = {
-    //   m1: "cocktailResponse.data.drinks[0].strMeasure1",
-    //   m2: "cocktailResponse.data.drinks[0].strMeasure2",
-    //   m3: "cocktailResponse.data.drinks[0].strMeasure3",
-    //   m4: "cocktailResponse.data.drinks[0].strMeasure4",
-    //   m5: "cocktailResponse.data.drinks[0].strMeasure5",
-    //   m6: "cocktailResponse.data.drinks[0].strMeasure6",
-    //   m7: "cocktailResponse.data.drinks[0].strMeasure7",
-    //   m8: "cocktailResponse.data.drinks[0].strMeasure8",
-    //   m9: "cocktailResponse.data.drinks[0].strMeasure9",
-    //   m10: "cocktailResponse.data.drinks[0].strMeasure10",
-    //   m11: "cocktailResponse.data.drinks[0].strMeasure11",
-    //   m12: "cocktailResponse.data.drinks[0].strMeasure12",
-    //   m13: "cocktailResponse.data.drinks[0].strMeasure13",
-    //   m14: "cocktailResponse.data.drinks[0].strMeasure14",
-    //   m15: "cocktailResponse.data.drinks[0].strMeasure15"
-    // }
-    // let drinkMeasureArray = Object.values(drinkMeasure)
-    // console.log("MEASURMENTS:", drinkMeasureArray)
+ 
     
+    myMeasure(cocktailData)
     
-    // // Attempt to pull ALL measure stings
-    // for (let i = 1; i < 15; i++) {
-    //   if (drinkMeasureArray === null) {
-    //     return null 
-    //   } else {
-    //    drinkMeasureArray ++
-    //   }
-    //   return drinkMeasureArray
-    // }
+    // let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1 
     
-    
-    
-    
-    let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1 
-    
-    let myDrinkSpecs = document.createElement("li")
-    myDrinkSpecs.textContent = `${drinkMeasure} ${drinkIngredient}`
-    listDiv.append(myDrinkSpecs)
+    // let myDrinkSpecs = document.createElement("li")
+    // myDrinkSpecs.textContent = `${drinkMeasure} ${drinkIngredient}`
+    // listDiv.append(myDrinkSpecs)
     
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
