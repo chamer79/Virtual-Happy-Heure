@@ -26,10 +26,8 @@ menuOptions()
 function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirit").value
-  
-
     console.log(optionValue)  // <--sanity check  **Logging Null HERE
-    getDrinkId(optionValue)
+    // getDrinkId(optionValue)
 
  
   // ***CALL RX VALUE HERE
@@ -40,8 +38,7 @@ function getValue(e) {
     // -- Event Handler for Form --
 const form = document.querySelector("form")
 form.addEventListener("submit", getValue)
-    
-    
+
     
     // -- API Request for Ingredients Data --
 async function getDrinkId(spiritValue) {
@@ -72,14 +69,13 @@ async function getCocktail(cocktailValue) {
   const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
   try {
     const cocktailResponse = await axios.get(url)
-    console.log(cocktailResponse)
+    console.log(cocktailResponse.data.drinks)
   }
   catch (error) {
     console.error(error)
   }
-
 }
-
+getCocktail()
 
     
     // --Connecting both APIs together --
