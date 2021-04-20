@@ -89,8 +89,19 @@ async function getCocktail(cocktailValue) {
 
     let listDiv = document.createElement("div")
     listDiv.className = "cocktail-ingredients"
-    console.log("Ingredient div here:", listDiv)    // <-- sanity check
-    cocktailRecipe.append(listDiv)   
+    // console.log("Ingredient div here:", listDiv)    // <-- sanity check
+    cocktailRecipe.append(listDiv)
+    
+    let drinkMeasure = document.createElement("li")
+    drinkMeasure.textContent = cocktailResponse.data.drinks[0].strMeasure1
+    listDiv.append(drinkMeasure)
+
+    let drinkIngredient = document.createElement("li")
+    drinkIngredient.textContent = cocktailResponse.data.drinks[0].strIngredient1
+    drinkMeasure.append(drinkIngredient)
+
+    
+  
     
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
