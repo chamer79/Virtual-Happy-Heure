@@ -50,7 +50,7 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging idDrink
+      // console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging idDrink
       const spiritDrinkId = spiritResponse.data.drinks[0].idDrink
     }
   }
@@ -92,17 +92,37 @@ async function getCocktail(cocktailValue) {
     // console.log("Ingredient div here:", listDiv)    // <-- sanity check
     cocktailRecipe.append(listDiv)
     
-    let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1
-    // drinkMeasure.textContent = cocktailResponse.data.drinks[0].strMeasure1
-    // listDiv.append(drinkMeasure)
-
+    let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1    // <-- '1' is for sanity check
+        
+    
+    
+    
+    
+    //Attempt to pull ALL measure stings
+    // for (let i = 1; i < 15; i++) {
+    //   if (drinkMeasure === null) {
+    //     return null 
+    //   } else {
+    //    drinkMeasure ++
+    //   }
+    //   return drinkMeasure
+    // }
+    
+    
+    
+    
     let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1
-    // drinkIngredient.textContent = cocktailResponse.data.drinks[0].strIngredient1
-    // drinkMeasure.append(drinkIngredient)
+    
+    
+    
+    
+    
+    
+    let myDrinkSpecs = document.createElement("li")
+    myDrinkSpecs.textContent = `${drinkMeasure} ${drinkIngredient}`
+    listDiv.append(myDrinkSpecs)
 
-    let drinkSpecs = document.createElement("li")
-    drinkSpecs.textContent = `${drinkMeasure}  ${drinkIngredient}`
-    listDiv.append(drinkSpecs)
+
   
     
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
