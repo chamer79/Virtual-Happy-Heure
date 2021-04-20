@@ -71,20 +71,23 @@ async function getCocktail(cocktailValue) {
       const cocktailData = cocktailResponse.data.drinks[0]
       // showCocktailData(cocktailResponse.data.drinks[0])    // <--TYPEERROR: CAN'T READ PROPERTY '0' OF UNDEFINED @ showCocktailData #87 & getCocktail #71
         // Image
-    document.querySelector("#cocktail-image").src = cocktailResponse.data.drinks[0].strDrinkThumb
+    let cocktailImage = document.querySelector("#cocktail-image")
+    
+    let image = document.createElement("img")
+    image.src = cocktailResponse.data.drinks[0].strDrinkThumb 
+    cocktailImage.append(image)
     
     let cocktailRecipe = document.querySelector("#cocktail-recipe")    
 
-        //Drink Recipe
-    let drinkName = document.createElement("h2") 
+    let drinkName = document.createElement("h2")    // <--Pulling Recipe data
     drinkName.textContent = cocktailResponse.data.drinks[0].strDrink
     cocktailRecipe.append(drinkName)
     
-    let drinkGlass = document.createElement("h3")
+    let drinkGlass = document.createElement("h3")   // <--Pulling Glass data
     drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
     cocktailRecipe.append(drinkGlass)
 
-    let drinkInstructions = document.createElement("p")
+    let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
     cocktailRecipe.append(drinkInstructions)
 
