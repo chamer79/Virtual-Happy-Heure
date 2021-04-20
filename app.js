@@ -93,37 +93,53 @@ async function getCocktail(cocktailValue) {
     cocktailRecipe.append(listDiv)
     
     let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1    // <-- '1' is for sanity check
+    
+    function myMeasure(measurements) {
+      for (const [key, value] of Object.entries(measurements)) {
         
+      }
+
+    }
+
+    // let drinkMeasure = {
+    //   m1: "cocktailResponse.data.drinks[0].strMeasure1",
+    //   m2: "cocktailResponse.data.drinks[0].strMeasure2",
+    //   m3: "cocktailResponse.data.drinks[0].strMeasure3",
+    //   m4: "cocktailResponse.data.drinks[0].strMeasure4",
+    //   m5: "cocktailResponse.data.drinks[0].strMeasure5",
+    //   m6: "cocktailResponse.data.drinks[0].strMeasure6",
+    //   m7: "cocktailResponse.data.drinks[0].strMeasure7",
+    //   m8: "cocktailResponse.data.drinks[0].strMeasure8",
+    //   m9: "cocktailResponse.data.drinks[0].strMeasure9",
+    //   m10: "cocktailResponse.data.drinks[0].strMeasure10",
+    //   m11: "cocktailResponse.data.drinks[0].strMeasure11",
+    //   m12: "cocktailResponse.data.drinks[0].strMeasure12",
+    //   m13: "cocktailResponse.data.drinks[0].strMeasure13",
+    //   m14: "cocktailResponse.data.drinks[0].strMeasure14",
+    //   m15: "cocktailResponse.data.drinks[0].strMeasure15"
+    // }
+    // let drinkMeasureArray = Object.values(drinkMeasure)
+    // console.log("MEASURMENTS:", drinkMeasureArray)
     
     
-    
-    
-    //Attempt to pull ALL measure stings
+    // // Attempt to pull ALL measure stings
     // for (let i = 1; i < 15; i++) {
-    //   if (drinkMeasure === null) {
+    //   if (drinkMeasureArray === null) {
     //     return null 
     //   } else {
-    //    drinkMeasure ++
+    //    drinkMeasureArray ++
     //   }
-    //   return drinkMeasure
+    //   return drinkMeasureArray
     // }
     
     
     
     
-    let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1
-    
-    
-    
-    
-    
+    let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1 
     
     let myDrinkSpecs = document.createElement("li")
     myDrinkSpecs.textContent = `${drinkMeasure} ${drinkIngredient}`
     listDiv.append(myDrinkSpecs)
-
-
-  
     
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
