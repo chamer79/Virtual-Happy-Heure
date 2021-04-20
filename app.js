@@ -53,7 +53,8 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check 
+      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging 'undefinded'
+      const spiritDrinkId = spiritResponse.data.drinks[0].idDrink
     }
     // menuOptions(spiritList)  // <--RefenceError: spiritList is not defined @ getDrinkId
   }
@@ -67,6 +68,17 @@ getDrinkId()
     
     // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED
 // async function 
+async function getCocktail(cocktailValue) {
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+  try {
+    const cocktailResponse = await axios.get(url)
+    console.log(cocktailResponse)
+  }
+  catch (error) {
+    console.error(error)
+  }
+
+}
 
 
     
