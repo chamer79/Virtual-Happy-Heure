@@ -50,10 +50,26 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
+      // console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
       // const spiritDrinkId = spiritResponse.data.drinks[0].idDrink    // <-- Calls 1st idDrink value
     
-          // **Second Attempt to create a random drink id from base spirit**
+        // ** 3rd Attempt
+      console.log(Object.getOwnPropertyNames("idDrink").forEach(
+        function (value) {
+          
+        }
+      ))
+      
+        // const spiritDrinkId = Object.getOwnPropertyNames("idDrink")
+      // const randomBaseIndex = Math.floor(Math.random() * spiritDrinkId.length)
+      // const randomBaseKey = spiritDrinkId[randomBaseIndex]
+      // const randomBaseId = "idDrink"[randomBaseKey]
+      
+      
+      
+      
+      
+      // **Second Attempt to create a random drink id from base spirit**
                 // ** only returns 1st idDrink value...WTF was I thinking?!?  
                 //  Got Lost down Rabbit Hole.  >_<
       // function spiritDrinkId(idNumber) {
