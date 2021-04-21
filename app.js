@@ -50,8 +50,9 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      // console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging idDrink
+      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging idDrink
       const spiritDrinkId = spiritResponse.data.drinks[0].idDrink
+      
     }
   }
   catch (error) {
@@ -69,7 +70,7 @@ async function getCocktail(cocktailValue) {
       const cocktailResponse = await axios.get(url)
       console.log(cocktailResponse.data.drinks[0])    // <-- sanity check logging all info
       const cocktailData = cocktailResponse.data.drinks[0]
-      // showCocktailData(cocktailResponse.data.drinks[0])    // <--TYPEERROR: CAN'T READ PROPERTY '0' OF UNDEFINED @ showCocktailData #87 & getCocktail #71
+      
         // Image
     let cocktailImage = document.querySelector("#cocktail-image")
     
@@ -83,16 +84,15 @@ async function getCocktail(cocktailValue) {
     drinkName.textContent = cocktailResponse.data.drinks[0].strDrink
     cocktailRecipe.append(drinkName)
     
-    let drinkGlass = document.createElement("h3")   // <--Pulling Glass data
-    drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
-    cocktailRecipe.append(drinkGlass)
+        // ****  Debating to include 'glass' ...incorrect glass names don't match up to image.  
+    // let drinkGlass = document.createElement("h3")   // <--Pulling Glass data
+    // drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
+    // cocktailRecipe.append(drinkGlass)
 
     let listDiv = document.createElement("div")
     listDiv.className = "cocktail-ingredients"
     // console.log("Ingredient div here:", listDiv)    // <-- sanity check
     cocktailRecipe.append(listDiv)
-    
-    // let drinkMeasure = cocktailResponse.data.drinks[0].strMeasure1    // <-- '1' is for sanity check
     
     function myMeasure(drink) {
       // for (const [key, value] of Object.entries(measurements)) {
@@ -111,16 +111,8 @@ async function getCocktail(cocktailValue) {
         }
       })
     }
- 
-    
     myMeasure(cocktailData)
-    
-    // let drinkIngredient = cocktailResponse.data.drinks[0].strIngredient1 
-    
-    // let myDrinkSpecs = document.createElement("li")
-    // myDrinkSpecs.textContent = `${drinkMeasure} ${drinkIngredient}`
-    // listDiv.append(myDrinkSpecs)
-    
+         
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
     cocktailRecipe.append(drinkInstructions)
@@ -129,15 +121,32 @@ async function getCocktail(cocktailValue) {
   catch (error) {
     console.error(error)
   }
-  return cocktailValue
+  // return cocktailValue
 }
 getCocktail()
 
     
   //  --Create Dynamic HTML & Append to the DOM: 
   //    ->image, h2, h3, ul / li, & p
+        // *** Please refer to lines 66-126.
+  
+  
+    // --Connecting both APIs together --
 
-              // ***FIRST ATTEMPT****   <---nothing popped up....realized forgot .textContent.  doah!
+
+
+    
+ 
+    // -- Remove Previous Results
+
+
+
+
+
+
+
+        // --- BEGINNING OF DRY DANAMIC HTML & APPENDING
+                  // ***FIRST ATTEMPT****   <---nothing popped up....realized forgot .textContent.  doah!
   // function showCocktailData(data) {
 //   console.log("Inside showCocktailData:", data)   // <--sanity check *Coming up as undefinded. WHY?? :/
     
@@ -154,19 +163,3 @@ getCocktail()
   // return cocktailData   
 // }
 // showCocktailData()
-
-
-
-
-
-
-    // --Connecting both APIs together --
-
-
-
-    
- 
-    // -- Remove Previous Results
-
-
-
