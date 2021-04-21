@@ -11,7 +11,7 @@ function menuOptions() {
     optionTag.textContent = spirit[i]   
     optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
-    console.log(optionTag.value)   // <--sanity check
+    // console.log(optionTag.value)   // <--sanity check
   }
 }
 menuOptions()
@@ -26,8 +26,9 @@ menuOptions()
 function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirit").value
-    console.log(optionValue)  // <--sanity check  
-    getDrinkId(optionValue)
+    // console.log(optionValue)  // <--sanity check  
+  getDrinkId(optionValue)
+  // getCocktail(optionValue)
 
  
   // ***CALL RX VALUE HERE
@@ -50,48 +51,28 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      // console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
+      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
       const spiritDrinkId = spiritResponse.data.drinks[0].idDrink    // <-- Calls 1st idDrink value
       
       
-      // ** 3rd Attempt v1.0    
+          // ** 3rd Attempt v1.0    
       const idValue = Object.values(spiritDrinkId)
       console.log("Test", idValue)    // <-- logging value array in single number / non id
   
-      const randomCocktailId = idValue[Math.floor(Math.random(spiritDrinkId.length) * spiritDrinkId.length)]
-      console.log(randomCocktailId)   // <--logs random number...but not id :/
- 
+        // ** 3rd Attempt v2.0
+      // const idValue = Object.getValue(spiritDrinkId)
+      // console.log("TEST:", idValue)
       
-   
-      
-      
-      
-      
-      // **Second Attempt to create a random drink id from base spirit**
-                // ** only returns 1st idDrink value...WTF was I thinking?!?  
-                //  Got Lost down Rabbit Hole.  >_<
-      // function spiritDrinkId(idNumber) {
-      //   Object.entries(idNumber).forEach(([key, value]) => {
-      //     if (key.include("idDrink")) {
-      //       let keyId = key.split("idDrink")
-      //       for (let i = 0; i < "idDrink".length; i++) {
-      //       let randomBaseIndex = Math.floor(Math.random(value) * spiritDrinkId.length)
-      //       const randomBaseKey = keyId[randomBaseIndex]
-      //       const randomBaseId = idDrink[randomBaseKey]
-      //       return randomBaseId
-      //       }
-      //     }
-      //   })
-      //   spiritDrinkId(idNumber)
-      // } 
-      
-      
+       
+        const randomCocktailId = [Math.floor(Math.random() * spiritDrinkId.length)]
+        console.log(randomCocktailId)   // <--logs random number...but not id :/
      
+      
           // **First Attempt to create a random drink id from base spirit**
       // const spiritDrinkId = Object.value(idDrink)
       // const randomBaseIndex = Math.floor(Math.random() * spiritDrinkId.length)
-      // const randomBaseKey = spiritDrinkId[randomBaseIndex]
-      // const randomBaseId = idDrink[randomBaseKey]
+      const randomBaseKey = spiritDrinkId[randomBaseIndex]
+      const randomBaseId = idDrink[randomBaseKey]
     }
   }
   catch (error) {
@@ -101,68 +82,66 @@ async function getDrinkId(spiritValue) {
 }
 getDrinkId()
 
+
+
     
-    // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED....Would need to go to getDrinkId??? :/
-async function getCocktail(cocktailValue) {
-  const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
-  try {
-      const cocktailResponse = await axios.get(url)
-      console.log(cocktailResponse.data.drinks[0])    // <-- sanity check logging all info
-      const cocktailData = cocktailResponse.data.drinks[0]
+//     // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED....Would need to go to getDrinkId??? :/
+// async function getCocktail(cocktailValue) {
+//   const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
+//   try {
+//       const cocktailResponse = await axios.get(url)
+//       console.log(cocktailResponse.data.drinks[0])    // <-- sanity check logging all info
+//       const cocktailData = cocktailResponse.data.drinks[0]
       
-        // Image
-    let cocktailImage = document.querySelector("#cocktail-image")
+//         // Image
+//     let cocktailImage = document.querySelector("#cocktail-image")
     
-    let image = document.createElement("img")
-    image.src = cocktailResponse.data.drinks[0].strDrinkThumb 
-    cocktailImage.append(image)
+//     let image = document.createElement("img")
+//     image.src = cocktailResponse.data.drinks[0].strDrinkThumb 
+//     cocktailImage.append(image)
     
-    let cocktailRecipe = document.querySelector("#cocktail-recipe")    
+//     let cocktailRecipe = document.querySelector("#cocktail-recipe")    
 
-    let drinkName = document.createElement("h2")    // <--Pulling Recipe data
-    drinkName.textContent = cocktailResponse.data.drinks[0].strDrink
-    cocktailRecipe.append(drinkName)
+//     let drinkName = document.createElement("h2")    // <--Pulling Recipe data
+//     drinkName.textContent = cocktailResponse.data.drinks[0].strDrink
+//     cocktailRecipe.append(drinkName)
     
-        // ****  Debating to include 'glass' ...incorrect glass names don't match up to image.  
-    // let drinkGlass = document.createElement("h3")   // <--Pulling Glass data
-    // drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
-    // cocktailRecipe.append(drinkGlass)
+//         // ****  Debating to include 'glass' ...incorrect glass names don't match up to image.  
+//     // let drinkGlass = document.createElement("h3")   // <--Pulling Glass data
+//     // drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
+//     // cocktailRecipe.append(drinkGlass)
 
-    let listDiv = document.createElement("div")
-    listDiv.className = "cocktail-ingredients"
-    // console.log("Ingredient div here:", listDiv)    // <-- sanity check
-    cocktailRecipe.append(listDiv)
+//     let listDiv = document.createElement("div")
+//     listDiv.className = "cocktail-ingredients"
+//     // console.log("Ingredient div here:", listDiv)    // <-- sanity check
+//     cocktailRecipe.append(listDiv)
     
-    function myMeasure(drink) {
-      // for (const [key, value] of Object.entries(measurements)) {
-      // console.log(drink)
-      // }
-      Object.entries(drink).forEach(([key, value]) => {
-        if (key.includes('strIngredient')) {
-          if (value !== null) {
-            let keyNum = key.split('strIngredient')
-            // console.log(keyNum)
-            // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
-            let myDrinkSpecs = document.createElement("li")
-            myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
-            listDiv.append(myDrinkSpecs)
-          }
-        }
-      })
-    }
-    myMeasure(cocktailData)
+//     function myMeasure(drink) {
+//       Object.entries(drink).forEach(([key, value]) => {
+//         if (key.includes('strIngredient')) {
+//           if (value !== null) {
+//             let keyNum = key.split('strIngredient')
+//             // console.log(keyNum)
+//             // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
+//             let myDrinkSpecs = document.createElement("li")
+//             myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
+//             listDiv.append(myDrinkSpecs)
+//           }
+//         }
+//       })
+//     }
+//     myMeasure(cocktailData)
          
-    let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
-    drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
-    cocktailRecipe.append(drinkInstructions)
-
-  }
-  catch (error) {
-    console.error(error)
-  }
-  // return cocktailValue
-}
-getCocktail()
+//     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
+//     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
+//     cocktailRecipe.append(drinkInstructions)
+//   }
+//   catch (error) {
+//     console.error(error)
+//   }
+//   return cocktailValue
+// }
+// getCocktail()
 
     
   //  --Create Dynamic HTML & Append to the DOM: 
@@ -171,8 +150,26 @@ getCocktail()
   
   
     // --Connecting both APIs together --
+// compare(spiritValue, cocktailDrinkId) => {
+//   return baseDrinkId.value === cocktailDrinkId.value
+//   }
 
 
+
+
+    // const randomCocktail = (spiritValue, cocktailValue) => {
+//   let compare = (baseId, recipeId) => {
+//     for (let i = 0; i < spiritValue.length; i++) {
+//       if (recipeId.includes(baseId[i]) === true) {
+//         console.log(randomCocktail)   //<--sanity check
+//       }
+//     }
+//   }
+//   compare(spiritValue, cocktailValue)
+//   compare(cocktailValue, spiritValue )
+//   return randomCocktail
+// }
+// randomCocktail()
 
     
  
