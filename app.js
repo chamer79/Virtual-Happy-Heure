@@ -51,20 +51,18 @@ async function getDrinkId(spiritValue) {
     } else {
       const spiritResponse = await axios.get(url)
       // console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
-      // const spiritDrinkId = spiritResponse.data.drinks[0].idDrink    // <-- Calls 1st idDrink value
-    
-        // ** 3rd Attempt
-      console.log(Object.getOwnPropertyNames("idDrink").forEach(
-        function (value) {
-          
-        }
-      ))
+      const spiritDrinkId = spiritResponse.data.drinks[0].idDrink    // <-- Calls 1st idDrink value
       
-        // const spiritDrinkId = Object.getOwnPropertyNames("idDrink")
-      // const randomBaseIndex = Math.floor(Math.random() * spiritDrinkId.length)
-      // const randomBaseKey = spiritDrinkId[randomBaseIndex]
-      // const randomBaseId = "idDrink"[randomBaseKey]
       
+      // ** 3rd Attempt v1.0    
+      const idValue = Object.values(spiritDrinkId)
+      console.log("Test", idValue)    // <-- logging value array in single number / non id
+  
+      const randomCocktailId = idValue[Math.floor(Math.random(spiritDrinkId.length) * spiritDrinkId.length)]
+      console.log(randomCocktailId)   // <--logs random number...but not id :/
+ 
+      
+   
       
       
       
