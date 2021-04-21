@@ -124,6 +124,7 @@ API data sample for requesting a random cocktain recipe
 #### PostMVP  
 
 ```
+-Dry up hard code.
 -Add a cocktail shaker animation.
 -Add a " Feeling Lucky" button that produce a randomly generated cocktail option.
 -Adding images to each option on the dropdown menu.
@@ -141,9 +142,9 @@ API data sample for requesting a random cocktain recipe
 |April 20| Pseudocode | Complete
 |April 20| Dropdown menu code | Complete
 |April 20| Requesting APIs: ingredients | Complete
-|April 20| Requesting APIs: random cocktail | Incomplete
+|April 20| Requesting APIs: random cocktail | Complete
+|April 21| Dynamic tags & append to DOM  | Complete
 |April 21| Connecting both APIs | Incomplete
-|April 21| Dynamic tags & append to DOM  | Incomplete
 |April 21| Remove previous results  | Incomplete
 |April 22| CSS | Incomplete
 |April 22| PMVP if time permitting | Incomplete
@@ -160,12 +161,12 @@ API data sample for requesting a random cocktain recipe
 | Adding Form | M | 3hrs| 1hrs | 1hrs |
 | Dropdown Menu | H | 4hrs| 6hrs | 6hrs |
 | Requesting Ingredient API | H | 5hrs| 3hrs | 3hrs |
-| RequestRandom Cocktail API | H | 5hrs| 0.5hrs | 0hrs |
-| Connecting both APIs together | H | 5hrs| 0hrs | 0hrs |
+| RequestRandom Cocktail API | H | 5hrs| 4.5hrs | 4.5hrs |
+| Connecting both APIs together | H | 5hrs| 5.75hrs | 5.75hrs |
 | Dynamic tags & append to DOM: image & article | M-H | 4hrs| 0hrs | 0hrs |
 | Remove previous results | H | 4hrs| 0hrs | 0hrs |
 | CSS | M | 8hrs| 0hrs | 0hrs |
-| Total | H | 38hrs| 0hrs | 0hrs |
+| Total | H | 38hrs| 20.25hrs | 0hrs |
 
 ## Code Snippet
 
