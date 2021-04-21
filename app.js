@@ -11,7 +11,7 @@ function menuOptions() {
     optionTag.textContent = spirit[i]   
     optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
-    // console.log(optionTag.value)   // <--sanity check
+    console.log(optionTag.value)   // <--sanity check
   }
 }
 menuOptions()
@@ -40,7 +40,7 @@ const form = document.querySelector("form")
 form.addEventListener("submit", getValue)
 
     
-    // -- API Request for Ingredients Data --
+//     // -- API Request for Ingredients Data / Base Spirit --
 async function getDrinkId(spiritValue) {
   // console.log("HERE HERE:", spiritValue)    // <-sanity check *shows up as 'undefined' until base spirit is selected
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
@@ -50,9 +50,12 @@ async function getDrinkId(spiritValue) {
       return null
     } else {
       const spiritResponse = await axios.get(url)
-      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logging idDrink
-      const spiritDrinkId = spiritResponse.data.drinks[0].idDrink
-      
+      console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
+      const spiritDrinkId = spiritResponse.data.drinks[0].idDrink    // <-- Calls 1st idDrink value
+      // const spiritDrinkId = Object.value(idDrink)
+      // const randomBaseIndex = Math.floor(Math.random() * spiritDrinkId.length)
+      // const randomBaseKey = spiritDrinkId[randomBaseIndex]
+      // const randomBaseId = idDrink[randomBaseKey]
     }
   }
   catch (error) {
