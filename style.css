@@ -17,7 +17,33 @@ header{
 h1 {
   font-size: 70px;
 }
-#
+#spirit-selector{
+  margin: 15px 0;
+  padding: 15px;
+}
+#cocktail-response, 
+.coctail-image, 
+.cocktail-recipe, 
 footer {
+  display: flex;
+}
+#cocktail-response {
+  width: 700px;
+  margin: 40px 0;
+  
+}
+.cocktail-image {
+  
+  width: 325px;
+ 
+}
+.cocktail-recipe {
+  width: 325px;
+}
+footer {
+  justify-content: center;
+  align-content: flex-end;
+  margin-top: 50px;
   font-size: 15px;
+  
 }
