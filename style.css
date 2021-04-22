@@ -76,13 +76,12 @@ footer {
   font-size: 15px;
 }
 
-@media only screen (min-width: 3750px) and (max-width: 800px) {
+@media only screen (min-width: 375px) and (max-width: 800px) {
   body {
     font-size: 55px;
     line-height: 50px;
   }
   h1 {
-    color: #000000;;
+    color: #000000;
   }
-
 }
