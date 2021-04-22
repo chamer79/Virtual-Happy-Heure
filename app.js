@@ -29,7 +29,6 @@ function getValue(e) {
   const optionValue = document.querySelector("#select-spirit").value
     // console.log(optionValue)  // <--sanity check  
   getDrinkId(optionValue)
-  // getCocktail(optionValue)
  }
     
 
@@ -38,6 +37,8 @@ function getValue(e) {
 async function getDrinkId(spiritValue) {
   // console.log("HERE HERE:", spiritValue)    // <-sanity check *shows up as 'undefined' until base spirit is selected
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
+
+  removeCocktailRecipe()
 
   try {
     if (spiritValue === undefined) {    // <--URL ENDED w/ undefined. 
@@ -48,7 +49,6 @@ async function getDrinkId(spiritValue) {
       for (let i = 0; i < spiritResponse.data.drinks.length; i++) {
         // console.log(spiritResponse.data.drinks[i].idDrink) //<--sanity check  logs idDrink 
         drinkIds.push(spiritResponse.data.drinks[i].idDrink)    // <-- Calls 1st idDrink value
-        
       }
       console.log(drinkIds)
       const randomCocktailId = Math.floor(Math.random() * drinkIds.length)
@@ -58,24 +58,31 @@ async function getDrinkId(spiritValue) {
       const idUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail}`
 
       const filterResponse = await axios.get(idUrl)
-      console.log(filterResponse.data.drinks[0])
+      // console.log(filterResponse.data.drinks[0])
+      
+      let responseDiv = document.querySelector("#cocktail-response")
 
-      let cocktailImage = document.querySelector("#cocktail-image")
-    
+      let imageDiv = document.createElement("div")
+      imageDiv.classList.add = ("cocktail-image")
+      responseDiv.append(imageDiv)
+
       let image = document.createElement("img")
       image.src = filterResponse.data.drinks[0].strDrinkThumb 
-      cocktailImage.append(image)
+      imageDiv.append(image)
       
-      let cocktailRecipe = document.querySelector("#cocktail-recipe")    
-
+      let recipeDiv = document.createElement("div")
+      recipeDiv.classList.add = ("cocktail-recipe")
+      responseDiv.append(recipeDiv)
+      
       let drinkName = document.createElement("h2")    // <--Pulling Recipe data
       drinkName.textContent = filterResponse.data.drinks[0].strDrink
-      cocktailRecipe.append(drinkName)
+      recipeDiv.append(drinkName)
       
       let listDiv = document.createElement("div")
       listDiv.className = "cocktail-ingredients"
       // console.log("Ingredient div here:", listDiv)    // <-- sanity check
-      cocktailRecipe.append(listDiv)
+      recipeDiv.append(listDiv)
+     
       
       function myMeasure(drink) {
         Object.entries(drink).forEach(([key, value]) => {
@@ -92,10 +99,10 @@ async function getDrinkId(spiritValue) {
         })
       }
       myMeasure(filterResponse.data.drinks[0])   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
-          
+      
       let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
       drinkInstructions.textContent = filterResponse.data.drinks[0].strInstructions
-      cocktailRecipe.append(drinkInstructions)  
+      recipeDiv.append(drinkInstructions)   
     }
   }
   catch (error) {
@@ -103,6 +110,7 @@ async function getDrinkId(spiritValue) {
   }
   return spiritValue
 }
+
 getDrinkId()
     
       // -- Event Handler for Form --
@@ -110,25 +118,12 @@ const form = document.querySelector("form")
 form.addEventListener("submit", getValue)
 
     // ** Removing Previous Responses
-function removeCocktailImage() {
-  const removeImageDiv = document.querySelector("#cocktail-image")
-  while (removeImageDiv.removeChild) {
-    removeImageDiv.removeChild(removeImageDiv.lastChild)
-  }
-}
-
-function removeCocktailImage() {
-  const removeImageDiv = document.querySelector("#cocktail-image")
-  while (removeImageDiv.removeChild) {
-    removeImageDiv.removeChild(removeImageDiv.lastChild)
-  }
-}
 function removeCocktailRecipe() {
-  const removeRecipeDiv = document.querySelector("#cocktail-image")
-  while (removeRecipeDiv.removeChild) {
-    removeRecipeDiv.removeChild(removeRecipeDiv.lastChild)
+  const removeRecipeDiv = document.querySelector("#cocktail-response")
+  if (removeRecipeDiv) {
+    while (removeRecipeDiv.lastChild) {
+      removeRecipeDiv.removeChild(removeRecipeDiv.lastChild)
+    }
   }
 }
 
-removeCocktailImage()
-removeCocktailRecipe()
