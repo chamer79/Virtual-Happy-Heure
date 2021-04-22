@@ -2,48 +2,52 @@
   box-sizing: border-box;
 }
 body{
-  width: 700px;
-  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
   font-family: "Raleway", sans-serif; 
   text-align: center;
   font-size: 20px;
   background-color: #f4f6f7;
 
 }
+header, 
+footer {
+  flex: 0 300px;
+}
 header{
   font-family: "Permanent Marker", cursive;
-  height: 300px;
 }
 h1 {
   font-size: 70px;
 }
-#spirit-selector{
-  margin: 15px 0;
-  padding: 15px;
+section {
+  flex: 1;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: column wrap;
+  margin: 5px 0;
+  padding: 10px;
 }
-#cocktail-response, 
-.coctail-image, 
-.cocktail-recipe, 
-footer {
-  display: flex;
+#spirit-selector{
+ flex: 1;
 }
 #cocktail-response {
-  width: 700px;
-  margin: 40px 0;
-  
+  flex: 0;
+  display: flex;
+  flex-flow: row;
 }
 .cocktail-image {
-  
-  width: 325px;
- 
+  flex: -1; 
 }
 .cocktail-recipe {
-  width: 325px;
+  flex: 5;
+  justify-content: center;
+  align-content: center;
+  flex-flow: row wrap;
 }
 footer {
   justify-content: center;
   align-content: flex-end;
   margin-top: 50px;
   font-size: 15px;
-  
 }
