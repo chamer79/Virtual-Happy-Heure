@@ -9,7 +9,8 @@ Virtual Happy Heure  (Virtual Happy Hour)
 A website that will randomly generate a cocktail recipe, with image, based on the based spirit chosen.
 
 ## API and Data Sample
-API data sample for requesting ingredients.
+[The CocktailDB]
+API data sample for requesting ingredients.  {https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin}
 ```json
 {
     "drinks": [
@@ -37,7 +38,7 @@ API data sample for requesting ingredients.
 }	
 ```
 
-API data sample for requesting a random cocktain recipe
+API data sample for requesting a cocktail details by ingredient {https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007}
 ```json
 {
     "drinks": [
@@ -163,10 +164,10 @@ API data sample for requesting a random cocktain recipe
 | Requesting Ingredient API | H | 5hrs| 4hrs | 4hrs |
 | RequestRandom Cocktail API | H | 5hrs| 4.5hrs | 4.5hrs |
 | Dynamic tags & append to DOM: image & article | M-H | 4hrs| 5.75hrs | 5.75hrs |
-| Connecting both APIs together | H | 5hrs| hrs | too much hrs |
+| Connecting both APIs together | H | 5hrs| 7.5hrs | 7.5hrs |
 | Remove previous results | H | 4hrs| 1hrs | 0hrs |
 | CSS | M | 8hrs| 0hrs | 0hrs |
-| Total | H | 38hrs| 20.25hrs | 0hrs |
+| Total | H | 38hrs| 28.75hrs | 27.75hrs |
 
 ## Code Snippet
 
