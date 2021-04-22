@@ -13,10 +13,10 @@ function menuOptions() {
     selectTag.appendChild(optionTag)
     // console.log(optionTag.value)   // <--sanity check
   }
+  
 }
 menuOptions()
 
-    
     
     // -- Create For Option Tags --
   // * Refer to lines 9-13
@@ -31,7 +31,7 @@ function getValue(e) {
   getDrinkId(optionValue)
   // getCocktail(optionValue)
  }
-        
+    
 
                 // ** Might forgo this code block - possible but turning more into a PMVP than a MVP???
 // //     // -- API Request for Ingredients Data / Base Spirit --
@@ -62,46 +62,42 @@ async function getDrinkId(spiritValue) {
 
       let cocktailImage = document.querySelector("#cocktail-image")
     
-    let image = document.createElement("img")
-    image.src = filterResponse.data.drinks[0].strDrinkThumb 
-    cocktailImage.append(image)
-    
-    let cocktailRecipe = document.querySelector("#cocktail-recipe")    
+      let image = document.createElement("img")
+      image.src = filterResponse.data.drinks[0].strDrinkThumb 
+      cocktailImage.append(image)
+      
+      let cocktailRecipe = document.querySelector("#cocktail-recipe")    
 
-    let drinkName = document.createElement("h2")    // <--Pulling Recipe data
-    drinkName.textContent = filterResponse.data.drinks[0].strDrink
-    cocktailRecipe.append(drinkName)
-    
-
-
-    let listDiv = document.createElement("div")
-    listDiv.className = "cocktail-ingredients"
-    // console.log("Ingredient div here:", listDiv)    // <-- sanity check
-    cocktailRecipe.append(listDiv)
-    
-    function myMeasure(drink) {
-      Object.entries(drink).forEach(([key, value]) => {
-        if (key.includes('strIngredient')) {
-          if (value !== null) {
-            let keyNum = key.split('strIngredient')
-            // console.log(keyNum)
-            // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
-            let myDrinkSpecs = document.createElement("li")
-            myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
-            listDiv.append(myDrinkSpecs)
+      let drinkName = document.createElement("h2")    // <--Pulling Recipe data
+      drinkName.textContent = filterResponse.data.drinks[0].strDrink
+      cocktailRecipe.append(drinkName)
+      
+      let listDiv = document.createElement("div")
+      listDiv.className = "cocktail-ingredients"
+      // console.log("Ingredient div here:", listDiv)    // <-- sanity check
+      cocktailRecipe.append(listDiv)
+      
+      function myMeasure(drink) {
+        Object.entries(drink).forEach(([key, value]) => {
+          if (key.includes('strIngredient')) {
+            if (value !== null) {
+              let keyNum = key.split('strIngredient')
+              // console.log(keyNum)
+              // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
+              let myDrinkSpecs = document.createElement("li")
+              myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
+              listDiv.append(myDrinkSpecs)
+            }
           }
-        }
-      })
-     
+        })
+      }
+      myMeasure(filterResponse.data.drinks[0])   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
+          
+      let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
+      drinkInstructions.textContent = filterResponse.data.drinks[0].strInstructions
+      cocktailRecipe.append(drinkInstructions)  
     }
-    myMeasure(filterResponse.data.drinks[0])   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
-         
-    let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
-    drinkInstructions.textContent = filterResponse.data.drinks[0].strInstructions
-    cocktailRecipe.append(drinkInstructions)  
   }
-    }
-  
   catch (error) {
     console.error (error)
   }
@@ -109,107 +105,30 @@ async function getDrinkId(spiritValue) {
 }
 getDrinkId()
     
-   
       // -- Event Handler for Form --
 const form = document.querySelector("form")
 form.addEventListener("submit", getValue)
-    
 
+    // ** Removing Previous Responses
+function removeCocktailImage() {
+  const removeImageDiv = document.querySelector("#cocktail-image")
+  while (removeImageDiv.removeChild) {
+    removeImageDiv.removeChild(removeImageDiv.lastChild)
+  }
+}
 
-    
-    
-    
-//         // Image
-//     let cocktailImage = document.querySelector("#cocktail-image")
-    
-//     let image = document.createElement("img")
-//     image.src = cocktailResponse.data.drinks[0].strDrinkThumb 
-//     cocktailImage.append(image)
-    
-//     let cocktailRecipe = document.querySelector("#cocktail-recipe")    
+function removeCocktailImage() {
+  const removeImageDiv = document.querySelector("#cocktail-image")
+  while (removeImageDiv.removeChild) {
+    removeImageDiv.removeChild(removeImageDiv.lastChild)
+  }
+}
+function removeCocktailRecipe() {
+  const removeRecipeDiv = document.querySelector("#cocktail-image")
+  while (removeRecipeDiv.removeChild) {
+    removeRecipeDiv.removeChild(removeRecipeDiv.lastChild)
+  }
+}
 
-//     let drinkName = document.createElement("h2")    // <--Pulling Recipe data
-//     drinkName.textContent = cocktailResponse.data.drinks[0].strDrink
-//     cocktailRecipe.append(drinkName)
-    
-// //         // ****  Debating to include 'glass' ...incorrect glass names don't match up to image.  
-// //     // let drinkGlass = document.createElement("h3")   // <--Pulling Glass data
-// //     // drinkGlass.textContent = cocktailResponse.data.drinks[0].strGlass
-// //     // cocktailRecipe.append(drinkGlass)
-
-//     let listDiv = document.createElement("div")
-//     listDiv.className = "cocktail-ingredients"
-//     // console.log("Ingredient div here:", listDiv)    // <-- sanity check
-//     cocktailRecipe.append(listDiv)
-    
-//     function myMeasure(drink) {
-//       Object.entries(drink).forEach(([key, value]) => {
-//         if (key.includes('strIngredient')) {
-//           if (value !== null) {
-//             let keyNum = key.split('strIngredient')
-//             // console.log(keyNum)
-//             // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
-//             let myDrinkSpecs = document.createElement("li")
-//             myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
-//             listDiv.append(myDrinkSpecs)
-//           }
-//         }
-//       })
-     
-//     }
-//     myMeasure(cocktailData)   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
-         
-//     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
-//     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
-//     cocktailRecipe.append(drinkInstructions)
-    
-    
-  // }
-//   catch (error) {
-//     console.error(error)
-//   }
-//   return cocktailValue
-// }
-   
-  //  --Create Dynamic HTML & Append to the DOM: 
-  //    ->image, h2, h3, ul / li, & p
-        // *** Please refer to lines 66-126.
-  
-  
-   // -- Remove Previous Results
-// function removeCocktailImage() {
-//   const removeImage = document.querySelector("cocktail-image")
-//   while (removeImage.lastChild) {
-//     removeImage.removeChild(removeImage.lastChild)
-//   }
-// }
-
-// function removeCocktailRecipe() {
-//   const removeRecipe = document.querySelector("cocktail-recipe")
-//   while (removeRecipe.lastChild) {
-//     removeRecipe.removeChild(removeRecipe.lastChild)
-//   }
-// }
-// removeCocktailImage()
-    // removeCocktailRecipe()
-
-
-
-        // --- BEGINNING OF DRY DANAMIC HTML & APPENDING
-                  // ***FIRST ATTEMPT****   <---nothing popped up....realized forgot .textContent.  doah!
-  // function showCocktailData(data) {
-//   console.log("Inside showCocktailData:", data)   // <--sanity check *Coming up as undefinded. WHY?? :/
-    
-  //  let cocktailData = `
-  // <img id="cocktail-image"  src="${data.drinks[0].strDrinkThumb}" alt="cocktail image" style="width: 250px; height: auto;">
-  // <h2>Cocktail: ${data.drinks[0].strDrink}</h2>
-  // <h3>Glass: ${data.drinks[0].strGlass}</h3>
-  // <p>Instrictions:  ${data.drinks[0].strIntructions}</p>
-  // `
-  // console.log("Data Requesting Here:", cocktailData)    // <-- sanity check *Doesn't appear to be logging in console.  WHY??  :/
-
-  // document.querySelector("#cocktail-image").insertAdjacentHTML("beforeend", cocktailData) 
-      //^^Above goes w/ code on lines 86-91
-  // return cocktailData   
-// }
-// showCocktailData()
+removeCocktailImage()
+removeCocktailRecipe()
