@@ -77,6 +77,6 @@ footer {
   font-size: 15px;
 }
 
-@media screen {
+@media screen (min-width: 360px) and (max-width: 640px) {
   
 }
