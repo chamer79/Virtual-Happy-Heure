@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  width: 700px;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif; 
+  text-align: center;
+  font-size: 20px;
+  background-color: #f4f6f7;
+
+}
+header{
+  font-family: "Permanent Marker", cursive;
+  height: 300px;
+}
+h1 {
+  font-size: 70px;
+}
+#
+footer {
+  font-size: 15px;
+}
