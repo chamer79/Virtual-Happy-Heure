@@ -16,7 +16,6 @@ header{
   background-image: url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80);
   background-size: cover;
   background-position: 75%;
-  
 }
 h1 {
   font-size: 70px;
@@ -106,17 +105,16 @@ Responsive Design
     padding: 15px;
   }
   #cocktail-response{
-    flex-direction: column-reverse;
+    flex-flow: column-reverse wrap;
+    flex: 0;
     background-color: #ffffff;
+    margin: 0;
+    padding: 0;
   }
-  .random-image {
-    width: 50%;
-  }
+  .cocktail-image, 
   .cocktail-recipe {
-    flex: 2;
-    justify-content: center;
-    align-content: center;
-    flex-flow: row wrap;
-  }
-
+   display: flex;
+   flex: 0;
+   margin: 0;
+  } 
 }
