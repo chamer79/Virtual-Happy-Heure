@@ -38,6 +38,7 @@ section {
 }
 .cocktail-image {
   flex: -1; 
+ 
 }
 .cocktail-recipe {
   flex: 5;

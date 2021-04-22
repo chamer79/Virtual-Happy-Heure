@@ -69,6 +69,7 @@ async function getDrinkId(spiritValue) {
       let image = document.createElement("img")
       image.src = filterResponse.data.drinks[0].strDrinkThumb 
       imageDiv.append(image)
+      image.style="width: 475px; height: auto; border: 2px solid #000000;"
       
       let recipeDiv = document.createElement("div")
       recipeDiv.classList.add = ("cocktail-recipe")
