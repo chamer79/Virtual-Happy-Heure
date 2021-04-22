@@ -64,14 +64,21 @@ button {
   align-content: space-around;
   background-color: #f4f6f7;
  }
-.cocktail-image {
-  object-fit: scale-down;
-}
-.cocktail-recipe {
-  flex: 2;
+ .cocktail-image,
+ .cocktail-recipe {
   justify-content: center;
   align-content: center;
   flex-flow: row wrap;
+}
+
+ .cocktail-image {
+  flex: -1;
+}
+.cocktail-recipe {
+  flex: 2;
+  /* justify-content: center;
+  align-content: center;
+  flex-flow: row wrap; */
 }
 footer {
   display: flex;
@@ -100,21 +107,26 @@ Responsive Design
     line-height: 45px;
     margin-top: 85px;
   }
- option {
+  select {
+    margin: 10px 15px 30px;
+    font-size: 20px; 
+  }
+  option {
     text-align: center;
-    padding: 15px;
+    padding: 0;
   }
   #cocktail-response{
     flex-flow: column-reverse wrap;
     flex: 0;
+    justify-content: center;
+    align-content: center ;
     background-color: #ffffff;
     margin: 0;
-    padding: 0;
   }
   .cocktail-image, 
   .cocktail-recipe {
    display: flex;
    flex: 0;
-   margin: 0;
+   
   } 
 }
