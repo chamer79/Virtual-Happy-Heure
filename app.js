@@ -61,6 +61,7 @@ async function getDrinkId(spiritValue) {
       // console.log(filterResponse.data.drinks[0])
       
       let responseDiv = document.querySelector("#cocktail-response")
+      responseDiv.style="margin: 30px 0; padding: 40px 0 30px;"
 
       let imageDiv = document.createElement("div")
       imageDiv.classList.add = ("cocktail-image")
@@ -69,11 +70,12 @@ async function getDrinkId(spiritValue) {
       let image = document.createElement("img")
       image.src = filterResponse.data.drinks[0].strDrinkThumb 
       imageDiv.append(image)
-      image.style="width: 475px; height: auto; border: 2px solid #000000;"
+      image.style="width: 475px; height: auto; border: 2px solid #000000; margin: 0 25px;"
       
       let recipeDiv = document.createElement("div")
       recipeDiv.classList.add = ("cocktail-recipe")
       responseDiv.append(recipeDiv)
+      recipeDiv.style="width: 475px; margin: 0 25px; padding: 25px 0; "
       
       let drinkName = document.createElement("h2")    // <--Pulling Recipe data
       drinkName.textContent = filterResponse.data.drinks[0].strDrink
