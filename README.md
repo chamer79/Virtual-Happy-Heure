@@ -144,7 +144,7 @@ API data sample for requesting a random cocktain recipe
 |April 20| Requesting APIs: ingredients | Complete
 |April 20| Requesting APIs: random cocktail | Complete
 |April 21| Dynamic tags & append to DOM  | Complete
-|April 21| Connecting both APIs | Incomplete
+|April 21| Connecting both APIs | Complete
 |April 21| Remove previous results  | Incomplete
 |April 22| CSS | Incomplete
 |April 22| PMVP if time permitting | Incomplete
@@ -160,11 +160,11 @@ API data sample for requesting a random cocktain recipe
 | --- | :---: |  :---: | :---: | :---: |
 | Adding Form | M | 3hrs| 1hrs | 1hrs |
 | Dropdown Menu | H | 4hrs| 6hrs | 6hrs |
-| Requesting Ingredient API | H | 5hrs| 3hrs | 3hrs |
+| Requesting Ingredient API | H | 5hrs| 4hrs | 4hrs |
 | RequestRandom Cocktail API | H | 5hrs| 4.5hrs | 4.5hrs |
-| Connecting both APIs together | H | 5hrs| 5.75hrs | 5.75hrs |
-| Dynamic tags & append to DOM: image & article | M-H | 4hrs| 0hrs | 0hrs |
-| Remove previous results | H | 4hrs| 0hrs | 0hrs |
+| Dynamic tags & append to DOM: image & article | M-H | 4hrs| 5.75hrs | 5.75hrs |
+| Connecting both APIs together | H | 5hrs| hrs | too much hrs |
+| Remove previous results | H | 4hrs| 1hrs | 0hrs |
 | CSS | M | 8hrs| 0hrs | 0hrs |
 | Total | H | 38hrs| 20.25hrs | 0hrs |
 
