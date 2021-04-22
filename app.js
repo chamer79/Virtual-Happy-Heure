@@ -94,13 +94,11 @@ async function getDrinkId(spiritValue) {
       })
      
     }
-    myMeasure(filterResponse.data.drinks[0].strInstructions)   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
+    myMeasure(filterResponse.data.drinks[0])   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
          
     let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
     drinkInstructions.textContent = filterResponse.data.drinks[0].strInstructions
-    cocktailRecipe.append(drinkInstructions)
-    
-    
+    cocktailRecipe.append(drinkInstructions)  
   }
     }
   
@@ -111,23 +109,13 @@ async function getDrinkId(spiritValue) {
 }
 getDrinkId()
     
-    // -- Event Handler for Form --
+   
+      // -- Event Handler for Form --
 const form = document.querySelector("form")
 form.addEventListener("submit", getValue)
     
 
-// //     // -- API Request for Random Coctail Recipe Data --  **RANDOM NUMBER GENRATOR NEEDED....Would need to go to getDrinkId??? :/
-// async function getCocktail(cocktailValue) {
-//   const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`
-  
-//   try {
-    
-//     const cocktailResponse = await axios.get(url)
-//     console.log(cocktailResponse.data.drinks[0])    // <-- sanity check logging all info
-//     const cocktailData = cocktailResponse.data.drinks[0]
-//     const drinkID = cocktailResponse.data.drinks[0].idDrink
-//     console.log("TEST:", drinkID)
-//     const idUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`
+
     
     
     
@@ -175,55 +163,20 @@ form.addEventListener("submit", getValue)
 //     drinkInstructions.textContent = cocktailResponse.data.drinks[0].strInstructions
 //     cocktailRecipe.append(drinkInstructions)
     
-    // removeCocktailImage()
-    // removeCocktailRecipe()
+    
   // }
 //   catch (error) {
 //     console.error(error)
 //   }
 //   return cocktailValue
 // }
-
-// const cocktailResult = (drink, baseSpirit) => {
-//   if (drink.includes(baseSpirit) === true) {
-//     return ture
-//   } else {
-//     return false
-//   }
-// } 
-// console.log ("TEST TEST:", cocktailResult)
-
-    
+   
   //  --Create Dynamic HTML & Append to the DOM: 
   //    ->image, h2, h3, ul / li, & p
         // *** Please refer to lines 66-126.
   
   
-    // --Connecting both APIs together --
-    // ** Second Attempt
-  
-
-
-          // ** First Attempt
-  // const cocktailResult = (drink, spiritValue) => {
-  //let matchingSpirit = []
-  // let compare = (ingredient1, ingredient2) => {
-  //     if (ingredient2.includes(ingredient1[i]) !== false) {
-  //         matchingSpirit.push(ingredient1[i])
-  //     }
-  //   }
-  //   compare(drink, spiritValue)
-  //   compare(spiritValue, drink)
-  // }
- 
-
-
-
-
-
-   
- 
-    // -- Remove Previous Results
+   // -- Remove Previous Results
 // function removeCocktailImage() {
 //   const removeImage = document.querySelector("cocktail-image")
 //   while (removeImage.lastChild) {
@@ -237,8 +190,8 @@ form.addEventListener("submit", getValue)
 //     removeRecipe.removeChild(removeRecipe.lastChild)
 //   }
 // }
-
-
+// removeCocktailImage()
+    // removeCocktailRecipe()
 
 
 
@@ -260,46 +213,3 @@ form.addEventListener("submit", getValue)
   // return cocktailData   
 // }
 // showCocktailData()
-
-
-                // ** Might forgo this code block - possible but turning more into a PMVP than a MVP???
-// //     // -- API Request for Ingredients Data / Base Spirit --
-// async function getDrinkId(spiritValue) {
-//   // console.log("HERE HERE:", spiritValue)    // <-sanity check *shows up as 'undefined' until base spirit is selected
-//   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
-
-//   try {
-//     if (spiritValue === undefined) {    // <--URL ENDED w/ undefined. 
-//       return null
-//     } else {
-//       const spiritResponse = await axios.get(url)
-//       console.log(spiritResponse.data.drinks[0].idDrink) //<--sanity check  logs idDrink 
-//       const spiritDrinkId = spiritResponse.data.drinks[0].idDrink    // <-- Calls 1st idDrink value
-      
-      
-//           // ** 3rd Attempt v1.0    
-//       // const idValue = Object.values(spiritDrinkId)
-//       // console.log("Test", idValue)    // <-- logging value array in single number / non id
-  
-//         // ** 3rd Attempt v2.0
-//       // const idValue = Object.getValue(spiritDrinkId)
-//       // console.log("TEST:", idValue)
-      
-       
-//         // const randomCocktailId = [Math.floor(Math.random() * spiritDrinkId.length)]
-//         // console.log(randomCocktailId)   // <--logs random number...but not id :/
-     
-      
-//           // **First Attempt to create a random drink id from base spirit**
-//       // const spiritDrinkId = Object.value(idDrink)
-//       // const randomBaseIndex = Math.floor(Math.random() * spiritDrinkId.length)
-//       // const randomBaseKey = spiritDrinkId[randomBaseIndex]
-//       // const randomBaseId = idDrink[randomBaseKey]
-//     }
-//   }
-//   catch (error) {
-//     console.error (error)
-//   }
-//   return spiritValue
-// }
-// getDrinkId()
