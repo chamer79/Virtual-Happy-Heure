@@ -39,7 +39,7 @@ async function getDrinkId(spiritValue) {
     } else {
       const spiritResponse = await axios.get(url)
       let drinkIds = []
-      for (let i = 0; i < spiritResponse.data.drinks.length; i++) {       
+      for (let i = 0; i < spiritResponse.data.drinks.length; i++) {        
         drinkIds.push(spiritResponse.data.drinks[i].idDrink)    
       }
       const randomCocktailId = Math.floor(Math.random() * drinkIds.length)

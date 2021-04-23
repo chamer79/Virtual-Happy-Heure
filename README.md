@@ -151,6 +151,7 @@ API data sample for requesting a cocktail details by id
 |April 21| Connecting both APIs | Complete
 |April 21| Remove previous results  | Complete
 |April 22| CSS | Complete
+|April 23| Deployed Link | Complete
 |April 23| Presentations | Complete
 
 ## Priority Matrix
