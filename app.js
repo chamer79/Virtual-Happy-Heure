@@ -6,14 +6,12 @@ function menuOptions() {
   const spirit = ["Bourbon", "Gin", "Tequila", "Vodka", "Rum"]
   
   for (let i = 0; i < spirit.length; i++) {
-    // console.log(spirit[i])   // <-- sanity check WORKS
     let spiritList = spirit[i]
     
     let optionTag = document.createElement("option")  // <-- Create Form Option Tags
     optionTag.textContent = spirit[i]   
     optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
-    // console.log(optionTag.value)   // <--sanity check
   }
 }
 menuOptions()
@@ -25,7 +23,6 @@ menuOptions()
 function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirit").value
-    // console.log(optionValue)  // <--sanity check  
   getDrinkId(optionValue)
  }
     
@@ -34,13 +31,12 @@ function getValue(e) {
 // 2 API Requests: Ingredients Data & Cocktail Detail
 //=====================================================
 async function getDrinkId(spiritValue) {
-  // console.log("HERE HERE:", spiritValue)    // <-sanity check *shows up as 'undefined' until base spirit is selected
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
 
   removeCocktailRecipe()
 
   try {
-    if (spiritValue === undefined) {    // <--URL ENDED w/ 'undefined'. 
+    if (spiritValue === undefined) {    // <-- 'null' didn't work due to URL ending w/ 'undefined'. 
       return null
     } else {
       const spiritResponse = await axios.get(url)
@@ -57,7 +53,7 @@ async function getDrinkId(spiritValue) {
       const filterResponse = await axios.get(idUrl)
       
       //===========================
-      // Appending to the DOM
+      // Appending to the DOM   <-- Work inside of try/catch
       //===========================
 
       let responseDiv = document.querySelector("#cocktail-response")
@@ -70,29 +66,26 @@ async function getDrinkId(spiritValue) {
       let image = document.createElement("img")
       image.src = filterResponse.data.drinks[0].strDrinkThumb 
       imageDiv.append(image)
-      image.style="width: 400px; height: auto; border: 2px solid #000000; margin: 0 20px;"
+      image.style="width: 400px; height: auto; border: 2px solid #000000; margin: 0 20px;"    
       
       let recipeDiv = document.createElement("div")
       recipeDiv.classList.add = ("cocktail-recipe")
       responseDiv.append(recipeDiv)
-      recipeDiv.style="width: 475px; margin: 0 25px; padding: 0 auto; "
+      recipeDiv.style="width: 475px; margin: 0 25px; padding: 0 auto; " // <-- Lines:60, 69, 74 - Couldn't alter in CSS
       
-      let drinkName = document.createElement("h2")    // <--Pulling Recipe data
+      let drinkName = document.createElement("h2")    
       drinkName.textContent = filterResponse.data.drinks[0].strDrink
       recipeDiv.append(drinkName)
       
       let listDiv = document.createElement("div")
       listDiv.className = "cocktail-ingredients"
-      // console.log("Ingredient div here:", listDiv)    // <-- sanity check
       recipeDiv.append(listDiv)
      
-      function myMeasure(drink) {       
+      function myMeasure(drink) {         // <-- pulling both measure & ingredient data. Matching bot sets of data together & appending on sam <li> 
         Object.entries(drink).forEach(([key, value]) => {
           if (key.includes('strIngredient')) {
             if (value !== null) {
               let keyNum = key.split('strIngredient')
-              // console.log(keyNum)
-              // console.log(`${drink[`strMeasure${keyNum[1]}`]} ${value}`)
               let myDrinkSpecs = document.createElement("li")
               myDrinkSpecs.textContent = `${drink[`strMeasure${keyNum[1]}`]} ${value}`
               listDiv.append(myDrinkSpecs)
@@ -131,4 +124,3 @@ function removeCocktailRecipe() {
     }
   }
 }
-

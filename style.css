@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+/*========================
+  Base Content  
+=========================*/
 body{
   display: flex;
   flex-flow: column;
@@ -59,7 +62,7 @@ option{
 button {
   margin: 0 5px;
   font-size: 18px;
-  background-color: #ffffff;
+  background-color: #ffffff;    /* Originally a grayish color */
   padding: 2px 7px; 
 }
 
@@ -105,6 +108,9 @@ footer {
   Responsive Design 
 =========================*/
 @media screen and (max-width: 800px) {
+  /*========================
+  Base Content  
+=========================*/  
   body {
     line-height: 25px;
   }
@@ -116,6 +122,10 @@ footer {
     font-size: 45px;
     line-height: 45px;
     margin-top: 85px;
+  }
+  p {
+    line-height: 30px;
+    letter-spacing: 1px;
   }
   
 /*========================
@@ -130,10 +140,6 @@ form {
   }
   button {
     margin: 0 auto;
-  }
-  p {
-    line-height: 30px;
-    letter-spacing: 1px;
   }
 
 /*========================
