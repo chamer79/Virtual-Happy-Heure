@@ -146,9 +146,8 @@ API data sample for requesting a cocktail details by ingredient {https://www.the
 |April 20| Requesting APIs: random cocktail | Complete
 |April 21| Dynamic tags & append to DOM  | Complete
 |April 21| Connecting both APIs | Complete
-|April 21| Remove previous results  | Incomplete
-|April 22| CSS | Incomplete
-|April 22| PMVP if time permitting | Incomplete
+|April 21| Remove previous results  | Complete
+|April 22| CSS | Complete
 |April 23| Presentations | Incomplete
 
 ## Priority Matrix
@@ -159,25 +158,38 @@ API data sample for requesting a cocktail details by ingredient {https://www.the
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | M | 3hrs| 1hrs | 1hrs |
+| Adding Form | M | 3hrs| 1.15hrs | 1.15hrs |
 | Dropdown Menu | H | 4hrs| 6hrs | 6hrs |
 | Requesting Ingredient API | H | 5hrs| 4hrs | 4hrs |
 | RequestRandom Cocktail API | H | 5hrs| 4.5hrs | 4.5hrs |
 | Dynamic tags & append to DOM: image & article | M-H | 4hrs| 5.75hrs | 5.75hrs |
 | Connecting both APIs together | H | 5hrs| 7.5hrs | 7.5hrs |
-| Remove previous results | H | 4hrs| 1hrs | 0hrs |
-| CSS | M | 8hrs| 0hrs | 0hrs |
-| Total | H | 38hrs| 28.75hrs | 27.75hrs |
+| Remove previous results | H | 4hrs| 1.5hrs | 1.5hrs |
+| CSS | M | 8hrs| 7hrs | 7hrs |
+| Total | H | 38hrs| 37.5hrs | 37.5hrs |
 
 ## Code Snippet
 
 Describe code snippet proud of & why
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+function menuOptions() {
+  const selectTag = document.querySelector("#select-spirit")
+  const spirit = ["Bourbon", "Gin", "Tequila", "Vodka", "Rum"]
+  
+  for (let i = 0; i < spirit.length; i++) {
+    // console.log(spirit[i])   // <-- sanity check WORKS
+    let spiritList = spirit[i]
+    let optionTag = document.createElement("option")  // <-- Create For Option Tags
+
+    optionTag.textContent = spirit[i]   
+    optionTag.value = spirit[i]
+    selectTag.appendChild(optionTag)
+    // console.log(optionTag.value)   // <--sanity check
+  }
 ```
 
+First time making a dropdown menu in JS.  
+
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Decided to use the 'cocktails by id' API url instead of the 'random cocktail' url. Using the 'cocktails by id' API was easier to connect the two APIs together to retrieve the desired result.
