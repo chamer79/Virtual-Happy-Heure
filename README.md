@@ -9,7 +9,8 @@ Virtual Happy Heure  (Virtual Happy Hour)
 A website that will randomly generate a cocktail recipe, with image, based on the based spirit chosen.
 
 ## API and Data Sample
-[The CocktailDB]  {https://www.thecocktaildb.com/api.php}
+APIs provided by The CocktailDb.com
+
 API data sample for requesting ingredients. 
 ```json
 {
@@ -150,7 +151,7 @@ API data sample for requesting a cocktail details by id
 |April 21| Connecting both APIs | Complete
 |April 21| Remove previous results  | Complete
 |April 22| CSS | Complete
-|April 23| Presentations | Incomplete
+|April 23| Presentations | Complete
 
 ## Priority Matrix
 
@@ -172,26 +173,24 @@ API data sample for requesting a cocktail details by id
 
 ## Code Snippet
 
-Describe code snippet proud of & why
-
 ```
 function menuOptions() {
   const selectTag = document.querySelector("#select-spirit")
   const spirit = ["Bourbon", "Gin", "Tequila", "Vodka", "Rum"]
   
   for (let i = 0; i < spirit.length; i++) {
-    // console.log(spirit[i])   // <-- sanity check WORKS
     let spiritList = spirit[i]
-    let optionTag = document.createElement("option")  // <-- Create For Option Tags
-
+    
+    let optionTag = document.createElement("option")  // <-- Create Form Option Tags
     optionTag.textContent = spirit[i]   
     optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
-    // console.log(optionTag.value)   // <--sanity check
   }
+}
+menuOptions()
 ```
 
-First time making a dropdown menu in JS.  
+First time making a dropdown menu in JS. 
 
 ## Change Log
-Decided to use the 'cocktails by id' API url instead of the 'random cocktail' url. Using the 'cocktails by id' API was easier to connect the two APIs together to retrieve the desired result.
+Decided to use the 'cocktail details by id' API url instead of the 'random cocktail' url. Using the 'cocktails by detail id' API was easier to link the two APIs together with the 'idDrink' key inorder to produce the desired result.

@@ -16,7 +16,6 @@ function menuOptions() {
 }
 menuOptions()
 
-
 //==============================
 // Get Option Value Tag
 //==============================
@@ -25,14 +24,13 @@ function getValue(e) {
   const optionValue = document.querySelector("#select-spirit").value
   getDrinkId(optionValue)
  }
-    
 
 //====================================================
 // 2 API Requests: Ingredients Data & Cocktail Detail
 //=====================================================
 async function getDrinkId(spiritValue) {
-  const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
-
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`   // <-- by ingredient API
+                                                                                          // NEEDED to input 'https://' in order to request the API
   removeCocktailRecipe()
 
   try {
@@ -41,14 +39,13 @@ async function getDrinkId(spiritValue) {
     } else {
       const spiritResponse = await axios.get(url)
       let drinkIds = []
-      for (let i = 0; i < spiritResponse.data.drinks.length; i++) { 
+      for (let i = 0; i < spiritResponse.data.drinks.length; i++) {       
         drinkIds.push(spiritResponse.data.drinks[i].idDrink)    
       }
-      console.log(drinkIds)
       const randomCocktailId = Math.floor(Math.random() * drinkIds.length)
-       
+      
       const cocktail = drinkIds[randomCocktailId]
-      const idUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail}`
+      const idUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail}`    // <-- by cocktail details by id API
 
       const filterResponse = await axios.get(idUrl)
       
