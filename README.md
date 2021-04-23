@@ -9,8 +9,8 @@ Virtual Happy Heure  (Virtual Happy Hour)
 A website that will randomly generate a cocktail recipe, with image, based on the based spirit chosen.
 
 ## API and Data Sample
-[The CocktailDB]
-API data sample for requesting ingredients.  {https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=gin}
+[The CocktailDB]  {https://www.thecocktaildb.com/api.php}
+API data sample for requesting ingredients. 
 ```json
 {
     "drinks": [
@@ -38,7 +38,7 @@ API data sample for requesting ingredients.  {https://www.thecocktaildb.com/api/
 }	
 ```
 
-API data sample for requesting a cocktail details by ingredient {https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007}
+API data sample for requesting a cocktail details by id
 ```json
 {
     "drinks": [
@@ -113,9 +113,9 @@ API data sample for requesting a cocktail details by ingredient {https://www.the
 -Get option value tag.
 -Event handler for form. 
 -API request for ingredients data.
--API request for random cocktail data.
+-API request for cocktail details by id data.
 -Connecting both APIs together.
--Create dynamic tags & append to the DOM: image & article.
+-Create dynamic tags & append to the DOM.
 -Remove previous results.
 -Style with CSS.
 -CSS responsive design.
@@ -130,6 +130,8 @@ API data sample for requesting a cocktail details by ingredient {https://www.the
 -Add a " Feeling Lucky" button that produce a randomly generated cocktail option.
 -Adding images to each option on the dropdown menu.
 -Add a gradient effect to the header's background image.
+-Add hover effect to dropdown menu.
+-Fix responsive design to image & recipe. 
 -Ask a UX student for input.
 ```
 
@@ -143,7 +145,7 @@ API data sample for requesting a cocktail details by ingredient {https://www.the
 |April 20| Pseudocode | Complete
 |April 20| Dropdown menu code | Complete
 |April 20| Requesting APIs: ingredients | Complete
-|April 20| Requesting APIs: random cocktail | Complete
+|April 20| Requesting APIs: cocktail details by id | Complete
 |April 21| Dynamic tags & append to DOM  | Complete
 |April 21| Connecting both APIs | Complete
 |April 21| Remove previous results  | Complete
@@ -192,4 +194,4 @@ function menuOptions() {
 First time making a dropdown menu in JS.  
 
 ## Change Log
- Decided to use the 'cocktails by id' API url instead of the 'random cocktail' url. Using the 'cocktails by id' API was easier to connect the two APIs together to retrieve the desired result.
+Decided to use the 'cocktails by id' API url instead of the 'random cocktail' url. Using the 'cocktails by id' API was easier to connect the two APIs together to retrieve the desired result.
