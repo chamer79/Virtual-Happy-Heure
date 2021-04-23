@@ -1,4 +1,6 @@
-    // -- Create Dynamic Dropdown Menu --  <-- VERY HAPPY Possible Code Snippet
+//==================================================
+// Create Dynamic Dropdown Menu / Form Option Tags   <-- VERY HAPPY Possible Code Snippet
+//==================================================
 function menuOptions() {
   const selectTag = document.querySelector("#select-spirit")
   const spirit = ["Bourbon", "Gin", "Tequila", "Vodka", "Rum"]
@@ -6,24 +8,20 @@ function menuOptions() {
   for (let i = 0; i < spirit.length; i++) {
     // console.log(spirit[i])   // <-- sanity check WORKS
     let spiritList = spirit[i]
-    let optionTag = document.createElement("option")  // <-- Create For Option Tags
-
+    
+    let optionTag = document.createElement("option")  // <-- Create Form Option Tags
     optionTag.textContent = spirit[i]   
     optionTag.value = spirit[i]
     selectTag.appendChild(optionTag)
     // console.log(optionTag.value)   // <--sanity check
   }
-  
 }
 menuOptions()
 
-    
-    // -- Create For Option Tags --
-  // * Refer to lines 9-13
 
-    
-    
-    // -- Get Option Value Tag --  ****ADDD CONDITIONAL
+//==============================
+// Get Option Value Tag
+//==============================
 function getValue(e) {
   e.preventDefault()
   const optionValue = document.querySelector("#select-spirit").value
@@ -32,8 +30,9 @@ function getValue(e) {
  }
     
 
-                // ** Might forgo this code block - possible but turning more into a PMVP than a MVP???
-// //     // -- API Request for Ingredients Data / Base Spirit --
+//====================================================
+// 2 API Requests: Ingredients Data & Cocktail Detail
+//=====================================================
 async function getDrinkId(spiritValue) {
   // console.log("HERE HERE:", spiritValue)    // <-sanity check *shows up as 'undefined' until base spirit is selected
   const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${spiritValue}`  // <-- NEEDED to input 'https://' in order to request the API
@@ -41,25 +40,26 @@ async function getDrinkId(spiritValue) {
   removeCocktailRecipe()
 
   try {
-    if (spiritValue === undefined) {    // <--URL ENDED w/ undefined. 
+    if (spiritValue === undefined) {    // <--URL ENDED w/ 'undefined'. 
       return null
     } else {
       const spiritResponse = await axios.get(url)
       let drinkIds = []
-      for (let i = 0; i < spiritResponse.data.drinks.length; i++) {
-        // console.log(spiritResponse.data.drinks[i].idDrink) //<--sanity check  logs idDrink 
-        drinkIds.push(spiritResponse.data.drinks[i].idDrink)    // <-- Calls 1st idDrink value
+      for (let i = 0; i < spiritResponse.data.drinks.length; i++) { 
+        drinkIds.push(spiritResponse.data.drinks[i].idDrink)    
       }
       console.log(drinkIds)
       const randomCocktailId = Math.floor(Math.random() * drinkIds.length)
-     
-      // console.log(drinkIds[randomCocktailId])   // <--logs random number...but not id :/
+       
       const cocktail = drinkIds[randomCocktailId]
       const idUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail}`
 
       const filterResponse = await axios.get(idUrl)
-      // console.log(filterResponse.data.drinks[0])
       
+      //===========================
+      // Appending to the DOM
+      //===========================
+
       let responseDiv = document.querySelector("#cocktail-response")
       responseDiv.style="margin: 30px 0; padding: 40px 0 30px;"
 
@@ -70,12 +70,12 @@ async function getDrinkId(spiritValue) {
       let image = document.createElement("img")
       image.src = filterResponse.data.drinks[0].strDrinkThumb 
       imageDiv.append(image)
-      image.style="width: 450px; height: auto; border: 2px solid #000000; margin: 0 25px;"
+      image.style="width: 400px; height: auto; border: 2px solid #000000; margin: 0 20px;"
       
       let recipeDiv = document.createElement("div")
       recipeDiv.classList.add = ("cocktail-recipe")
       responseDiv.append(recipeDiv)
-      recipeDiv.style="width: 365px; margin: 0 20px; padding: 25px 0; "
+      recipeDiv.style="width: 475px; margin: 0 25px; padding: 0 auto; "
       
       let drinkName = document.createElement("h2")    // <--Pulling Recipe data
       drinkName.textContent = filterResponse.data.drinks[0].strDrink
@@ -86,8 +86,7 @@ async function getDrinkId(spiritValue) {
       // console.log("Ingredient div here:", listDiv)    // <-- sanity check
       recipeDiv.append(listDiv)
      
-      
-      function myMeasure(drink) {
+      function myMeasure(drink) {       
         Object.entries(drink).forEach(([key, value]) => {
           if (key.includes('strIngredient')) {
             if (value !== null) {
@@ -101,9 +100,9 @@ async function getDrinkId(spiritValue) {
           }
         })
       }
-      myMeasure(filterResponse.data.drinks[0])   // <-- w/out coctailData = TypeError: Can't convert undefined or null to object...
+      myMeasure(filterResponse.data.drinks[0])   
       
-      let drinkInstructions = document.createElement("p")   // <--Pulling Instructions data
+      let drinkInstructions = document.createElement("p")  
       drinkInstructions.textContent = filterResponse.data.drinks[0].strInstructions
       recipeDiv.append(drinkInstructions)   
     }
@@ -113,14 +112,17 @@ async function getDrinkId(spiritValue) {
   }
   return spiritValue
 }
-
 getDrinkId()
-    
-      // -- Event Handler for Form --
+  
+//==============================
+// Event Handler for Form
+//==============================
 const form = document.querySelector("form")
 form.addEventListener("submit", getValue)
 
-    // ** Removing Previous Responses
+//==============================
+// Removing Previous Responses
+//==============================
 function removeCocktailRecipe() {
   const removeRecipeDiv = document.querySelector("#cocktail-response")
   if (removeRecipeDiv) {

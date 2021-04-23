@@ -32,6 +32,10 @@ section {
   flex-direction: column wrap;
   padding: 10px;
 }
+
+/*========================
+  Dropdown Menu & Button  
+=========================*/
 form {
   margin: 30px 0 50px;
 }
@@ -58,6 +62,10 @@ button {
   background-color: #ffffff;
   padding: 2px 7px; 
 }
+
+/*========================
+  Cocktail Data  
+=========================*/
 #cocktail-response {
   flex: 0;
   display: flex;
@@ -66,14 +74,14 @@ button {
   align-content: space-around;
   background-color: #f4f6f7;
  }
- .cocktail-image,
- .cocktail-recipe {
+ .cocktail-image {
+   flex: -1;
+ }
+.cocktail-recipe {
+  flex: 2;
   justify-content: center;
   align-content: center;
   flex-flow: row wrap;
-}
- .cocktail-image {
-  flex: -1;
 }
 .cocktail-recipe {
   flex: 2;
@@ -81,6 +89,10 @@ button {
   align-content: center;
   flex-flow: row wrap;
 }
+
+/*========================
+  Footer  
+=========================*/
 footer {
   display: flex;
   justify-content: center;
@@ -90,7 +102,7 @@ footer {
 }
 
 /*========================
-Responsive Design 
+  Responsive Design 
 =========================*/
 @media screen and (max-width: 800px) {
   body {
@@ -105,8 +117,15 @@ Responsive Design
     line-height: 45px;
     margin-top: 85px;
   }
+  
+/*========================
+  Dropdown Menu & Button  
+=========================*/
+form {
+  margin: 30px 0 20px;
+}
   select {
-    margin: 10px 15px 30px;
+    margin: 10px 15px 20px;
     font-size: 20px; 
   }
   button {
@@ -116,6 +135,10 @@ Responsive Design
     line-height: 30px;
     letter-spacing: 1px;
   }
+
+/*========================
+  Cocktail Data  
+=========================*/
   #cocktail-response{
     flex-flow: column-reverse wrap;
     flex: 0;
