@@ -193,4 +193,4 @@ menuOptions()
 First time making a dropdown menu in JS. 
 
 ## Change Log
-Decided to use the 'cocktail details by id' API url instead of the 'random cocktail' url. Using the 'cocktails by detail id' API was easier to link the two APIs together with the 'idDrink' key inorder to produce the desired result.
+Decided to use the 'cocktail details by id' API url instead of the 'random cocktail' url. Using the 'cocktails by detail id' API made it easier to link the two APIs together with the 'idDrink' key inorder to produce the desired result.
