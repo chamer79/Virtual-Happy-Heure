@@ -6,7 +6,7 @@ body{
   flex-flow: column;
   font-family: "Raleway", sans-serif; 
   text-align: center;
-  font-size: 20px;
+  font-size: 23px;
 }
 header{
   flex: 0 300px;
@@ -19,8 +19,10 @@ header{
 }
 h1 {
   font-size: 70px;
-  color: #e5e7e9;
+  color: #ffffff;
   padding: 40px 0;
+  letter-spacing: 5px;
+  text-shadow: 4px 3px #000000;
 }
 section {
   margin: 75px 0 15px;
@@ -70,19 +72,17 @@ button {
   align-content: center;
   flex-flow: row wrap;
 }
-
  .cocktail-image {
   flex: -1;
 }
 .cocktail-recipe {
   flex: 2;
-  /* justify-content: center;
+  justify-content: center;
   align-content: center;
-  flex-flow: row wrap; */
+  flex-flow: row wrap;
 }
 footer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-content: flex-end;
   padding: 0;
@@ -100,9 +100,7 @@ Responsive Design
     display: flex;
   }
   h1 {
-    color: #f2f4f4;
     text-align: center;
-    text-shadow: 3px 2px #000000;
     font-size: 45px;
     line-height: 45px;
     margin-top: 85px;
@@ -111,22 +109,25 @@ Responsive Design
     margin: 10px 15px 30px;
     font-size: 20px; 
   }
-  option {
-    text-align: center;
-    padding: 0;
+  button {
+    margin: 0 auto;
+  }
+  p {
+    line-height: 30px;
+    letter-spacing: 1px;
   }
   #cocktail-response{
     flex-flow: column-reverse wrap;
     flex: 0;
     justify-content: center;
-    align-content: center ;
+    align-content: center;
     background-color: #ffffff;
-    margin: 0;
   }
   .cocktail-image, 
   .cocktail-recipe {
    display: flex;
    flex: 0;
-   
-  } 
+   justify-content: center;
+   align-content: center;
+  }
 }
